@@ -1,0 +1,101 @@
+{
+    "questions": [
+        {
+            "question": "A pre-trip inspection should be completed.",
+            "options": [
+                "at least once a week.",
+                "if any problems occurred the last the time the vehicle was operated.",
+                "before operating the vehicle."
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "question": "What should you do when you are driving at night?",
+            "options": [
+                "Make sure you are driving slow enough so you can stop within the range of your headlights in an emergency.",
+                "Roll down your window so that the fresh air will help keep you awake.",
+                "If you are sleepy, drink coffee or other caffeine products."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Which of the following is the correct term for a long commercial vehicle's tendency to swing wide on turns?",
+            "options": [
+                "Sidetracking.",
+                "Offtracking.",
+                "Fishtailing."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "When a coolant container is part of a pressurized system, you can",
+            "options": [
+                "check the coolant level of a hot engine.",
+                "safely remove the radiator cap and add coolant while the engine is hot.",
+                "use water only in the cooling system."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "When you are parked at the side of the road at night, you must:",
+            "options": [
+                "warn others by turning on your 4-way emergency flashers.",
+                "put your warning devices out within 15 minutes.",
+                "use your left turn signal lights to give warning to other drivers."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "While doing the pre-trip inspection on your vehicle’s steering and exhaust system you found the following problems. Which one, if any, should be fixed before you drive the vehicle?",
+            "options": [
+                "Too many vertical stacks.",
+                "Oil on the tie rod. ",
+                "Play in the steering wheel of more than 10 degrees (2 inches on a 20-inch steering wheel)."
+            ],
+            "correctAnswer": 3
+        }
+        ,
+        {
+            "question": "Containerized loads",
+            "options": [
+                "are exempt from hazardous materials restrictions.",
+               "are exempt from weight limit restrictions.",
+                "generally are used when freight is carried part way by rail or ship."
+                
+            ],
+            "correctAnswer": 3
+        }
+        ,
+        {
+            "question": "You are exiting a highway using an offramp that curves downhill and you are driving a heavy vehicle. You should:",
+            "options": [
+                "do nothing because the posted speed limit for the offramp is usually 10 miles per hour below the safe speed limit for the offramp.",
+                "slow to a safe speed before the curve. ",
+                "downshift after you are in the curve."
+            ],
+            "correctAnswer": 2
+        }
+        ,
+        {
+            "question": "Water can safely be used on which of these fires?",
+            "options": [
+                "Electrical.",
+                "Gasoline.",
+                "Neither of the above. "
+                
+            ],
+            "correctAnswer": 3
+        }
+        ,
+        {
+            "question": "Three things add up to the total stopping distance for your vehicle. They are:",
+            "options": [
+                "perception distance, reaction distance, braking distance.",
+                "observation distance, reaction distance, slowing distance. ",
+                "perception distance, response distance, reaction distance."
+            ],
+            "correctAnswer": 1
+        }
+
+    ]
+}
