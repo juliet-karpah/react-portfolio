@@ -28,7 +28,6 @@ export async function getProductById(id) {
 
     if (docSnap.exists()) {
       const data = docSnap.data();
-      console.log(id, data)
       return data;
     } else {
       // docSnap.data() will be undefined in this case

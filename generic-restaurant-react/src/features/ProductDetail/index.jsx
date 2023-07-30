@@ -9,7 +9,7 @@ export default function ProductDetail() {
   
   return (
     <div>
-      <section className="mx-12 grid grid-cols-2 justify-around mt-12">
+      <section className="mx-12 grid grid-cols-2 justify-around mt-12 text-font">
         <Detail
           alt={product["alt"]}
           src={product["img"]}

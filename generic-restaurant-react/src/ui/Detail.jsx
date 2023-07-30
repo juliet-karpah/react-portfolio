@@ -4,7 +4,7 @@ import Rating from "./Rating";
 export default function Detail(props) {
   return (
     <>
-      <div className="">
+      <div>
         <img className="w-[36rem] object-cover" src={props.src} alt={props.alt} />
       </div>
       <div className="flex flex-col gap-8 px-16">
