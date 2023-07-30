@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       {
         path:"/product/:productId",
         element: <ProductDetail />,
+        errorElement: <Error />,
         loader:({params}) => productLoader(params.productId)
       }
     ]

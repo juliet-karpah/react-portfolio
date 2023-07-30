@@ -26,6 +26,16 @@ body {
     align-self: flex-start;
 }
 
+.nav-link{
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    align-self: flex-start;
+}
+
+.nav-link:hover{
+    border-bottom: 0.2rem solid #372316;
+}
+
 .custom-height{
     height: 28rem;
     object-fit: cover;
