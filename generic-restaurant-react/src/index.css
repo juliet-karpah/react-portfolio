@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  background-color: #f0ebe5;
+  color: #372316;
+}
+
+.text-color{
+  color: #372316;
+}
+
+.text-font{
+    font-family: 'Playfair Display', serif;
+}
+
+.btn{
+    border: 0.1rem solid #372316;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    align-self: flex-start;
+}
+
+.custom-height{
+    height: 28rem;
+    object-fit: cover;
+}
+
+.ad-bg{
+    background-color: #ece6df;
+}
+
+.logo-img{
+    filter: brightness(0);
+    opacity: 50%;
+}
+
+.featured-text {
+    opacity: 70%;
+}
