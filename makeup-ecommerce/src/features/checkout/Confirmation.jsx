@@ -1,17 +1,21 @@
-import { Link } from 'react-router-dom'
-export default function Error() {
+import { Link, useParams } from "react-router-dom";
+
+export default function ConfirmationPage() {
+  const { id } = useParams();
+
   return (
     <section className="ad-bg  text-color">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
         <div className="rounded-lg p-8 md:p-12 mb-8">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-2">
-            OPS, Something Went Wrong
+            Woohoo!!!
           </h1>
           <p className="text-lg font-normal  mb-6">
-          Something Went Wrong - There may be an issue with your connection. Please try again or visit our help center if you need a hand.
+            Your Order #{id} is in progress. Look out for an email with a
+            tracking number.
           </p>
           <Link
-            href="/"
+            to={"/"}
             className="inline-flex justify-center items-center btn"
           >
             Go Home

@@ -38,18 +38,13 @@ export async function getProductById(id) {
   }
 }
 
-export async function createOrder(db, orderItem, address) {
+export async function createOrder(userInfo) {
   try {
-    const res = await addDoc(collection(db, "orderItems"), orderItem);
-    console.log("Added document with ID: ", res.id)
-    console.log("Add: ", res)
     const resOrd = await addDoc(collection(db, "orders"), {
-      orderId: res.id,
-      address,
+      userInfo,
       status: 'pending'
     })
-    console.log("Added document with ID: ", resOrd.id)
-    console.log("Add: ", resOrd)
+    return resOrd.id
   } catch (e) {
     console.error(e);
   }
