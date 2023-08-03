@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Ad() {
   return (
-    <section className="grid grid-cols-2 my-36 mx-8 text-font gap-y-8">
+    <section className="grid grid-cols-2 my-36 mx-8  gap-y-8">
       <div className="w-full p-16 flex flex-col gap-8 ad-bg">
         <h3 className="text-2xl"> Our Mission</h3>
         <p>

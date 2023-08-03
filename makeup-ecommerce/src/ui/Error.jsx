@@ -1,9 +1,9 @@
 export default function Error() {
   return (
-    <section className="ad-bg text-font text-color">
+    <section className="ad-bg  text-color">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
         <div className="rounded-lg p-8 md:p-12 mb-8">
-          <h1 className=" text-3xl md:text-5xl font-extrabold mb-2">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-2">
             OPS, Something Went Wrong
           </h1>
           <p className="text-lg font-normal  mb-6">

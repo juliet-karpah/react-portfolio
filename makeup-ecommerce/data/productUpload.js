@@ -85,7 +85,7 @@ export const productList = [
 
 async function addDocument(db, prod) {
   try {
-    const res = await await addDoc(collection(db, "products"), prod);
+    const res = await addDoc(collection(db, "products"), prod);
     console.log("Added document with ID: ", res.id)
     console.log("Add: ", res);
   } catch (e) {

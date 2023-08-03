@@ -4,6 +4,7 @@ import Layout from "./ui/AppLayout";
 import ProductDetail from "./features/ProductDetail";
 import { productsLoader, productLoader } from "./services/loaders";
 import Error from "./ui/Error";
+import Cart from "./features/cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,9 @@ const router = createBrowserRouter([
         element: <ProductDetail />,
         errorElement: <Error />,
         loader:({params}) => productLoader(params.productId)
+      },{
+        path:"/cart",
+        element:<Cart />
       }
     ]
   }

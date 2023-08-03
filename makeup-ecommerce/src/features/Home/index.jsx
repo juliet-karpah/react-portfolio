@@ -7,7 +7,7 @@ import Products from "../Products";
 
 export default function Home() {
   const productList = useLoaderData();
-  console.log(productList);
+
   return (
     <>
       <Hero />

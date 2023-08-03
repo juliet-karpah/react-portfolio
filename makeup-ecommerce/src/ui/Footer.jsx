@@ -9,7 +9,7 @@ export default function Footer() {
             <img className="h-12 object-cover mr-3" src="/logo.png" alt="logo" />
           </Link>
           <nav>
-          <ul className="flex flex-wrap items-center mb-6 text-md font-bold text-font">
+          <ul className="flex flex-wrap items-center mb-6 text-md font-bold ">
                 <li>
                     <a href="#" className="mr-4 hover:underline md:mr-6 ">About</a>
                 </li>
