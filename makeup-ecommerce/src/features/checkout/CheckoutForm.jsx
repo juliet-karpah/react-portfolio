@@ -1,6 +1,6 @@
 import {  useSelector, useDispatch } from "react-redux";
 import { useFetcher, json, useNavigate } from "react-router-dom";
-import { getCartList, emptyCart } from "../cart/cartSlice";
+import { getCartList, emptyCart, goToCheckout } from "../cart/cartSlice";
 import { createOrder } from '../../../api/firebase';
 import { useEffect } from "react";
 
@@ -13,14 +13,17 @@ export default function CheckoutForm() {
 
   useEffect(() =>{
     const data = (fetcher.state === "idle" && fetcher.data) && fetcher.data
+    console.log(data, fetcher)
     if(data){
+        console.log(data)
         dispatch(emptyCart());
+        dispatch(goToCheckout(false))
         navigate(`/confirmation/${data}`)
     }
   }, [fetcher])
 
   return (
-    <fetcher.Form method="POST">
+    <fetcher.Form method="POST" action="/cart">
       <div className="relative z-0 w-full mb-6 group">
         <input
           type="email"
@@ -132,9 +135,11 @@ export async function action({ request }) {
 
   let res;
   try{
+    console.log("here")
     res = await createOrder(userInfo)
+    return json(res)
   }catch(e){
     console.error(e)
   }
-  return json(res)
+  
 }
