@@ -29,6 +29,7 @@ const cartSlice = createSlice({
     },
     emptyCart: (state) => {
       state.cartList = [];
+
     },
     openCart: (state) => {
       state.cartState = true;
@@ -36,7 +37,9 @@ const cartSlice = createSlice({
     closeCart: (state) => {
       state.cartState = false;
     },
-    goToCheckout: (state, action) => { state.openCheckout = action.payload},
+    goToCheckout: (state, action) => { 
+        state.openCheckout = action.payload;
+    },
   },
 });
 
