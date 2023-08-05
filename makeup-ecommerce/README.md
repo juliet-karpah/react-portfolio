@@ -13,3 +13,9 @@ This web app has not been deployed. Here are screenrecordings of the different f
 
 ### Cart
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/add-cart.gif)
+
+### Error Handling
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/error-handling.gif)
+
+### Checkout Form
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/checkout.gif)
