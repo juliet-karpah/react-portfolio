@@ -1,5 +1,5 @@
 # React + Vite + Firebase Makeup Online Shop
-A simple ecommerce web application built with the latest [reactjs](https://react.dev/) as front end framework, [Redux](https://redux.js.org/) as global state manage, and [Firebase](https://firebase.google.com/docs/) firestore for persistent storage of products and orders.
+A simple ecommerce web application built with the latest [reactjs](https://react.dev/) as front end framework, [Redux](https://redux.js.org/) as global state manager, and [Firebase](https://firebase.google.com/docs/) firestore for persistent storage of products and orders.
 
 ## Demo
 
