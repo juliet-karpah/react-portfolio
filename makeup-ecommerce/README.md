@@ -9,4 +9,7 @@ This web app has not been deployed. Here are screenrecordings of the different f
 
 
 ### Product detail page
-![]()
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/product-detail.gif)
+
+### Cart
+
