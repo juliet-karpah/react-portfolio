@@ -1,4 +1,4 @@
-# react-portfolio-2023
+# React Portfolio 2023
 
 This is a list of some react projects to show my react skills. 
 Please click on a title to view details about a project.
