@@ -13,9 +13,7 @@ export default function CheckoutForm() {
 
   useEffect(() =>{
     const data = (fetcher.state === "idle" && fetcher.data) && fetcher.data
-    console.log(data, fetcher)
     if(data){
-        console.log(data)
         dispatch(emptyCart());
         dispatch(goToCheckout(false))
         navigate(`/confirmation/${data}`)
@@ -135,7 +133,6 @@ export async function action({ request }) {
 
   let res;
   try{
-    console.log("here")
     res = await createOrder(userInfo)
     return json(res)
   }catch(e){
