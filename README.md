@@ -10,5 +10,5 @@ Please click on a title to view details about a project.
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/Vite%20%2B%20React.gif)
 
 ## [Restaurant Manager](https://github.com/juliet-karpah/react-portfolio/tree/main/restaurant-manager)
-1[](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/login-restaurant-app.png)
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/login-restaurant-app.png)
 
