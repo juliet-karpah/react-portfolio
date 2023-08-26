@@ -60,8 +60,8 @@ const SpanSmall = styled(Span)`
 export default function MainNav() {
   const navList = [
     {
-      name: "Calendar",
-      path:"/calendar",
+      name: "Tables",
+      path:"/Tables",
       img: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
