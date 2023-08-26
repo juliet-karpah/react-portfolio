@@ -1,1 +1,1 @@
-# React + Vite
+# Restaurant Management App
