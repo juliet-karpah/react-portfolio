@@ -1,26 +1,43 @@
-import { styled } from "styled-components";
-import "./App.css";
+
 import { GlobalStyles } from "./GlobalStyles";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
+import AppLayout from "./components/ui/AppLayout";
+import MetricsPage from "./Pages/MetricsPage";
+import ReservationsPage from "./Pages/ReservationPage";
+import { reservationsLoader } from "./services/loader";
 
-const StyledMain = styled.main`
-  margin: 0 auto;
-`;
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path:"/",
+      element: <AppLayout />,
+      children: [
+        {
+          path: "/metrics",
+          element: <MetricsPage />,
+        },
+        {
+          path:"/current-reservations",
+          element: <ReservationsPage />,
+          loader: reservationsLoader
+        },
+        {
+          path: "/past-reservations",
+          element: <ReservationsPage />
+        }
+      ],
+    },
+    {
+      path: "/login",
       element: <LoginPage />,
     },
   ]);
   return (
     <>
       <GlobalStyles />
-      <StyledMain>
-        <RouterProvider router={router} />
-      </StyledMain>
+      <RouterProvider router={router} />
     </>
   );
 }
