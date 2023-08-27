@@ -11,11 +11,9 @@ const StyledHeader = styled.header`
 export default function Header() {
   return (
     <StyledHeader>
-      Header
-    
+      <div></div>
 
-        <ProfileCard />
-
+      <ProfileCard />
     </StyledHeader>
   );
 }

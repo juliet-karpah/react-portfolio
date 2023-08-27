@@ -6,8 +6,8 @@ const variations = {
     height: 50%;
   `,
   small: css`
-    height: 100px;
-    width: 200px;
+    height: 50px;
+    width: 100px;
     border-radius: var(--border-radius-md);
   `,
   medium: css`

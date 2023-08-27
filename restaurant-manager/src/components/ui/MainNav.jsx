@@ -61,7 +61,7 @@ export default function MainNav() {
   const navList = [
     {
       name: "Tables",
-      path:"/Tables",
+      path:"/tables",
       img: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
