@@ -1,27 +1,24 @@
-
 import { GlobalStyles } from "./GlobalStyles";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
 import AppLayout from "./components/ui/AppLayout";
 import MetricsPage from "./Pages/MetricsPage";
 import ReservationsPage from "./Pages/ReservationPage";
-import RestaurantTables from "./components/tables";
-import Menu from "./components/menu";
-import { QueryClient, QueryClientProvider } from 'react-query';
-
+import { QueryClient, QueryClientProvider } from "react-query";
+import Cars from "./components/cars";
 
 const queryClient = new QueryClient({
-  defaultOptions:{
-    queries:{
-      staleTime: 60 * 1000
-    }
-  }
-})
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+    },
+  },
+});
 
 function App() {
   const router = createBrowserRouter([
     {
-      path:"/",
+      path: "/",
       element: <AppLayout />,
       children: [
         {
@@ -29,21 +26,17 @@ function App() {
           element: <MetricsPage />,
         },
         {
-          path:"/tables",
-          element: <RestaurantTables />
+          path: "/cars",
+          element: <Cars />,
         },
         {
-          path:"/current-reservations",
+          path: "/current-reservations",
           element: <ReservationsPage />,
         },
         {
           path: "/past-reservations",
-          element: <ReservationsPage />
+          element: <ReservationsPage />,
         },
-        {
-          path: "/menu",
-          element: <Menu />
-        }
       ],
     },
     {

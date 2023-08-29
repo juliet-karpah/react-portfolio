@@ -2,10 +2,10 @@ import { H2 } from "../ui/H2";
 import { StyledDiv } from "../ui/StyledDiv";
 import Table, { TableData, RowData, TableDataStatus } from "../ui/Table";
 import { useQuery } from "react-query";
-import { getTables } from "../../services/requests/api-tables";
+import { getCars } from "../../services/requests/api-cars";
 import { Image } from "../ui/image";
 
-export default function RestaurantTables() {
+export default function Cars() {
   const tableTitle = [
     {
       title: (
@@ -27,14 +27,16 @@ export default function RestaurantTables() {
     { title: "Name" },
     { title: "Capacity" },
     { title: "Type" },
+    { title: "Model" },
+    { title: "Rate" },
     { title: "Condition" },
   ];
 
-  const { isLoading, error, data } = useQuery("tableData", getTables);
+  const { isLoading, error, data } = useQuery("carData", getCars);
   console.log(isLoading, error, data);
   return (
     <StyledDiv>
-      <H2>Restaurant Tables</H2>
+      <H2> Cars </H2>
       <Table tableTitle={tableTitle}>
         {!isLoading ? (
           <tbody>
@@ -46,6 +48,8 @@ export default function RestaurantTables() {
                 <TableData>{data.name}</TableData>
                 <TableData>{data.maxCapacity}</TableData>
                 <TableData>{data.type}</TableData>
+                <TableData>{data.model}</TableData>
+                <TableData>{data.price}/hr</TableData>
                 <TableDataStatus status={data.condition}>{data.condition}</TableDataStatus>
               </RowData>
             ))}
