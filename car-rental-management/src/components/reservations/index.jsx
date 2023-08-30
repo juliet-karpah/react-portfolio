@@ -64,12 +64,12 @@ export default function Reservations() {
     getReservations
   );
 
-  const { data: renters } = useQuery(
+  const { data: renters, isLoading: loadingRenters } = useQuery(
     "renters",
     getRenters
   );
 
-  const { data: cars } = useQuery(
+  const { data: cars, isLoading: loadingCars } = useQuery(
     "cars",
     getCars
   );
@@ -108,8 +108,8 @@ export default function Reservations() {
                     </svg>
                   </TableData>
                   <TableData>{retrieveTime(data["startTime"])}</TableData>
-                  <TableData>{getOne(renters, data["renter_id"])['full_name']}</TableData>
-                  <TableData>{getOne(renters, data["renter_id"])['phone']}</TableData>
+                  <TableData>{getOne(renters, data["renter_id"], loadingRenters)['full_name']}</TableData>
+                  <TableData>{getOne(renters, data["renter_id"], loadingRenters)['phone']}</TableData>
                   <TableData>{data['car_id']}</TableData>
                   <TableDataStatus status={data.status}>
                     {data.status}
@@ -117,7 +117,7 @@ export default function Reservations() {
                   <TableData>
                     {hours(data["startTime"], data["endTime"])}
                   </TableData>
-                  <TableData>${calculatePrice(getOne(cars, data["renter_id"])['price'], hours(data["startTime"], data["endTime"]))}</TableData>
+                  <TableData>${calculatePrice(getOne(cars, data["renter_id"], loadingCars)['price'], hours(data["startTime"], data["endTime"]))}</TableData>
                 </RowData>
               ))}
             </tbody>

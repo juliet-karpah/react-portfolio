@@ -9,6 +9,6 @@ Please click on a title to view details about a project.
 ## [The makeup shop](https://github.com/juliet-karpah/react-portfolio/tree/main/makeup-ecommerce)
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/Vite%20%2B%20React.gif)
 
-## [Restaurant Manager](https://github.com/juliet-karpah/react-portfolio/tree/main/restaurant-manager)
+## [Car Rental Service](https://github.com/juliet-karpah/react-portfolio/tree/main/car-rental-management)
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/login-restaurant-app.png)
 
