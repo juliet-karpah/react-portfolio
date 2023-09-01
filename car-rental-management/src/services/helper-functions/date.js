@@ -11,6 +11,11 @@ export const retrieveTime = (timestamp) => {
   return time.toLocaleTimeString();
 };
 
+export const retrieveDate = (timestamp) => {
+  const time = new Date(timestamp);
+  return time.toLocaleDateString();
+};
+
 export const hours = (timestamp1, timestamp2) => {
     let startTime = new Date(timestamp1);
     let endTime = new Date(timestamp2);

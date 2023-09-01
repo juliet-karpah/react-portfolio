@@ -1,7 +1,7 @@
 import { H2 } from "../ui/H2";
 import { StyledDiv } from "../ui/StyledDiv";
 import Table, { TableData, RowData, TableDataStatus } from "../ui/Table";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getCars } from "../../services/requests/api-cars";
 import { Image } from "../ui/image";
 
@@ -29,11 +29,11 @@ export default function Cars() {
     { title: "Type" },
     { title: "Model" },
     { title: "Rate" },
-    { title: "Condition" },
+    { title: "Availability" },
   ];
 
-  const { isLoading, error, data } = useQuery("carData", getCars);
-  console.log(isLoading, error, data);
+  const { isLoading, data } = useQuery(["carData"], getCars);
+ 
   return (
     <StyledDiv>
       <H2> Cars </H2>
@@ -49,13 +49,13 @@ export default function Cars() {
                 <TableData>{data.maxCapacity}</TableData>
                 <TableData>{data.type}</TableData>
                 <TableData>{data.model}</TableData>
-                <TableData>{data.price}/hr</TableData>
-                <TableDataStatus status={data.condition}>{data.condition}</TableDataStatus>
+                <TableData>${data.price}/hr</TableData>
+                <TableDataStatus status={data.availabilty}>{data.availability}</TableDataStatus>
               </RowData>
             ))}
           </tbody>
         ):(
-            <div> No Tables </div>
+            <div> Loading... </div>
         )}
       </Table>
     </StyledDiv>

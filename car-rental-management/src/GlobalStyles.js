@@ -9,6 +9,8 @@ export const GlobalStyles = createGlobalStyle`
         --color-secondary-variant-dark: #015647;
         --color-light-gray: #D3D3D3;
         --color-grey-100: #f3f4f6;
+        --color-grey-200: #e5e7eb;
+        --color-grey-300: #d1d5db;
         --color-grey-400: #9ca3af;
         --color-grey-500: #6b7280;
         --color-grey-600: #4b5563;
@@ -33,5 +35,7 @@ export const GlobalStyles = createGlobalStyle`
 
     tr, th, td {
         height: 50px;
+        padding-left: 40px;
+        font-size: 12px;
     }
 `;

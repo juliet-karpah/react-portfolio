@@ -4,8 +4,10 @@ import LoginPage from "./Pages/LoginPage";
 import AppLayout from "./components/ui/AppLayout";
 import MetricsPage from "./Pages/MetricsPage";
 import ReservationsPage from "./Pages/ReservationPage";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Cars from "./components/cars";
+import RentersPage from "./Pages/Renters";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,6 +39,10 @@ function App() {
           path: "/past-reservations",
           element: <ReservationsPage />,
         },
+        {
+          path: "/renters",
+          element: <RentersPage />,
+        },
       ],
     },
     {
@@ -46,6 +52,7 @@ function App() {
   ]);
   return (
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false}/>
       <GlobalStyles />
       <RouterProvider router={router} />
     </QueryClientProvider>

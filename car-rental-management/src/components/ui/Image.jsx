@@ -11,8 +11,8 @@ const variations = {
     border-radius: var(--border-radius-md);
   `,
   medium: css`
-    height: 200px;
-    width: 300px;
+    height: 150px;
+    width: 200px;
     border-radius: var(--border-radius-md);
   `,
 };

@@ -9,7 +9,7 @@ const StyledSideBar = styled.aside`
 export default function SideBar() {
   return (
     <StyledSideBar>
-      <Image  src="logo_red.png" variation="small" />
+      <Image  src="logo_red.png" variation="medium" />
       <MainNav />
     </StyledSideBar>
   );

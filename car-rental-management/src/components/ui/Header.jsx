@@ -13,7 +13,7 @@ export default function Header() {
     <StyledHeader>
       <div></div>
 
-      <ProfileCard />
+      <ProfileCard name={"Juliet George"} role={"Admin"} />
     </StyledHeader>
   );
 }

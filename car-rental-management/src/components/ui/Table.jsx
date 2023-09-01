@@ -8,18 +8,17 @@ const TableEL = styled.table`
   align-self: center;
   border-collapse: collapse;
   color: var(--color-grey-500);
+  margin-bottom: 20px;
+  text-align: left;
 `;
 
 const TableRow = styled.tr`
   border-bottom: 1px solid var(--color-grey-100);
+
 `;
 
 export const RowData = styled(TableRow)`
   cursor: pointer;
-  &:hover {
-    background-color: var(--color-grey-400);
-    color: var(--color-grey-100);
-  }
   &:last-child {
     border: none;
   }
@@ -28,17 +27,17 @@ export const RowData = styled(TableRow)`
 const TableHeader = styled.th`
   font-weight: 700;
   text-transform: uppercase;
+  background-color: var(--color-grey-200);
 `;
 
 export const TableData = styled.td`
   width: 200px;
-  text-align: center;
   text-transform: Capitalize;
 `;
 
 export const TableDataStatus = styled(TableData)`
   color: ${(props) =>
-    (["canceled", "bad"].includes(props.status))
+    (["rented", "available"].includes(props.status))
       ? "var(--color-primary-variant-light)"
       : "var(--color-secondary-main)"};
 `;
