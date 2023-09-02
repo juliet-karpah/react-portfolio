@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 const size = {
     small:css`
+    height: 20px;
     width: 80%;
     `,
     medium:css`

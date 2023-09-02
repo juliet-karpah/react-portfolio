@@ -50,7 +50,7 @@ export default function Cars() {
                 <TableData>{data.type}</TableData>
                 <TableData>{data.model}</TableData>
                 <TableData>${data.price}/hr</TableData>
-                <TableDataStatus status={data.availabilty}>{data.availability}</TableDataStatus>
+                <TableDataStatus status={data.availability}>{data.availability}</TableDataStatus>
               </RowData>
             ))}
           </tbody>

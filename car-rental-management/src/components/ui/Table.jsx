@@ -37,7 +37,7 @@ export const TableData = styled.td`
 
 export const TableDataStatus = styled(TableData)`
   color: ${(props) =>
-    (["rented", "available"].includes(props.status))
+    (["rented"].includes(props.status))
       ? "var(--color-primary-variant-light)"
       : "var(--color-secondary-main)"};
 `;
