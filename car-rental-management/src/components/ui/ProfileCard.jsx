@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { Image } from "./image";
 
 const ProfileDiv = styled.div`
-  height: 50%;
+  height: 100%;
   display: flex;
   gap: 16px;
   align-items: center;
