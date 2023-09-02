@@ -102,8 +102,8 @@ export default function MainNav() {
       ),
     },
     {
-      name: "Inbox",
-      path: "/inbox",
+      name: "Messages",
+      path: "/messages",
       img: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

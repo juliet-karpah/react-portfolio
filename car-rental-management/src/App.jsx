@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Cars from "./components/cars";
 import RentersPage from "./Pages/Renters";
+import MessagesPage from "./Pages/MessagesPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,6 +35,10 @@ function App() {
         {
           path: "/current-reservations",
           element: <ReservationsPage />,
+        },
+        {
+          path:"/messages",
+          element: <MessagesPage />
         },
         {
           path: "/past-reservations",
