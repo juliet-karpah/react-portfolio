@@ -11,3 +11,7 @@ Cars Page
 Renters Page
 
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/renters-page.png)
+
+Messages Page
+
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/messages-page.png)
