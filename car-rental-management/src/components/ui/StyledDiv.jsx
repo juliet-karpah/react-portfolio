@@ -14,3 +14,17 @@ export const StyledDiv = styled.div`
   border-radius: var(--border-radius-md);
   ${(props) => variation[props.variation]}
 `;
+
+
+export const ProfileDiv = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 10px;
+`;
+
+export const ImageDiv = styled.div`
+height: 100px;
+display:flex;
+align-items: center;
+`

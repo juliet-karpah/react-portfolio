@@ -13,6 +13,7 @@ export const Button = styled.button`
   border: none;
   &:hover {
     background: var(--color-secondary-variant-dark);
+    color: white;
     cursor: pointer;
   }
 `;

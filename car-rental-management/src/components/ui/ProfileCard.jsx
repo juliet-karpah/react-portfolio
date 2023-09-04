@@ -1,13 +1,7 @@
 import { styled } from "styled-components";
 import { Image } from "./image";
+import { ImageDiv, ProfileDiv } from "./StyledDiv";
 
-const ProfileDiv = styled.div`
-  height: 100%;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  padding: 0 20px;
-`;
 
 const InfoDiv = styled.div`
   display: flex;
@@ -20,7 +14,13 @@ const Span = styled.span`
 export default function ProfileCard(props) {
   return (
     <ProfileDiv>
-      <Image variation="rounded" src={props.urlPhoto ? props.urlPhoto :"/profile-pic.png"} />
+      <ImageDiv>
+        <Image
+          variation="rounded"
+          src={props.urlPhoto ? props.urlPhoto : "/profile-pic.png"}
+        />
+      </ImageDiv>
+
       <InfoDiv>
         <span> {props.name} </span>
         <Span> {props.role} </Span>

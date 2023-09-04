@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 const variations = {
   rounded: css`
     border-radius: var(--border-radius-avatar);
-    height: 50%;
+    height: 60%;
   `,
   small: css`
     height: 50px;

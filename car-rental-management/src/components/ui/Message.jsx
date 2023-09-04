@@ -2,43 +2,58 @@ import { styled } from "styled-components";
 import { H2 } from "./H2";
 import { Input } from "./Input";
 import ProfileCard from "./ProfileCard";
-import { StyledDiv } from "./StyledDiv";
+import { ImageDiv, ProfileDiv, StyledDiv } from "./StyledDiv";
 import { Button } from "./Button";
 import { Textarea } from "./Textarea";
+import { retrieveTime } from "../../services/helper-functions/date";
+import MessageCard from "./MessageCard";
+import { Image } from "./image";
 
 const MessageTitle = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-grey-100);
-  height: 60px;
 `;
 
 const MessageContent = styled.section`
-height: 100%`;
+  height: 400px;
+`;
 
 const MessageForm = styled.form`
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
+  position: relative;
+  top: 130px;
 `;
 
 function MessageList(props) {
+  const user = props.users?.filter((user) => user.chats.length > 0);
   return (
     <StyledDiv variation={"messages"}>
       <H2>Messages</H2>
       <Input />
-      {props.users.map((user, i) => (
-        <ProfileCard key={i} name={user.full_name} role={user.role} />
+      {user?.map((user, i) => (
+        <Button key={i} onClick={() => props.onClick(user.id)}>
+          <ProfileCard
+            urlPhoto={user.image}
+            key={i}
+            name={user.full_name}
+            role={retrieveTime(user.chats[0]?.created_at)}
+          />
+        </Button>
       ))}
     </StyledDiv>
   );
 }
 
 function MessageExpand(props) {
+  const currentUserMessage = props.chats.length ? props.chats[0].chats : [];
+  const currentUser = props.chats.length ? props.chats[0] : []
   return (
     <StyledDiv variation={"messages"}>
       <MessageTitle>
-        <ProfileCard name={props.full_name} role={props.last_active} />
+        <ProfileCard urlPhoto={currentUser.image} name={currentUser.full_name} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -55,8 +70,19 @@ function MessageExpand(props) {
         </svg>
       </MessageTitle>
 
-      <MessageContent />
-
+      <MessageContent>
+        {currentUserMessage.map((chat, i) => (
+          <ProfileDiv key={i}>
+            <ImageDiv>
+              <Image
+                src={currentUser ? currentUser.image: "/profile-pic.png"}
+                variation={"rounded"}
+              />
+            </ImageDiv>
+            <MessageCard key={i} message={chat.message} />
+          </ProfileDiv>
+        ))}
+      </MessageContent>
       <MessageForm>
         <Textarea size="small" />
         <Button primary $borderMargin>
