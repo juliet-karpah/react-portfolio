@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Cars from "./components/cars";
 import RentersPage from "./Pages/Renters";
 import MessagesPage from "./Pages/MessagesPage";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -60,6 +61,17 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false}/>
       <GlobalStyles />
       <RouterProvider router={router} />
+      <Toaster position="top-center" toastOptions={{
+        success:{
+          duration: 3000
+        },
+        error:{
+          duration: 5000
+        },
+        style:{
+          backgroundColor: "var(--color-grey-100)"
+        }
+      }} />
     </QueryClientProvider>
   );
 }

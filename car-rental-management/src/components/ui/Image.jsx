@@ -7,7 +7,6 @@ const variations = {
   `,
   small: css`
     height: 50px;
-    width: 100px;
     border-radius: var(--border-radius-md);
   `,
   medium: css`

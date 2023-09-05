@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { H2 } from "./H2";
-import { Input } from "./Input";
+import Input from "./Input";
 import ProfileCard from "./ProfileCard";
 import { ImageDiv, ProfileDiv, StyledDiv } from "./StyledDiv";
 import { Button } from "./Button";
@@ -32,7 +32,7 @@ function MessageList(props) {
   return (
     <StyledDiv variation={"messages"}>
       <H2>Messages</H2>
-      <Input />
+      <Input label="Search" type="Input"/>
       {user?.map((user, i) => (
         <Button key={i} onClick={() => props.onClick(user.id)}>
           <ProfileCard

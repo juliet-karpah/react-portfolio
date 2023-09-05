@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 export const Form = styled.form`
 width:${props => props.width};
-height: 250px;
 background: #ffffff;
 display: flex;
 flex-direction: column;

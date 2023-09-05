@@ -37,5 +37,6 @@ export const GlobalStyles = createGlobalStyle`
         height: 50px;
         padding-left: 40px;
         font-size: 12px;
+        padding-top: 10px;
     }
 `;

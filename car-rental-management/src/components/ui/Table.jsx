@@ -24,15 +24,22 @@ export const RowData = styled(TableRow)`
   }
 `;
 
+const Thead = styled.thead`
+background-color: var(--color-grey-200);
+`
+
 const TableHeader = styled.th`
   font-weight: 700;
   text-transform: uppercase;
-  background-color: var(--color-grey-200);
 `;
 
 export const TableData = styled.td`
   width: 200px;
   text-transform: Capitalize;
+
+  &:last-child{
+    padding: 10px;
+  }
 `;
 
 export const TableDataStatus = styled(TableData)`
@@ -45,13 +52,13 @@ export const TableDataStatus = styled(TableData)`
 export default function Table(props) {
   return (
     <TableEL>
-      <thead>
+      <Thead>
         <TableRow>
           {props.tableTitle.map((title, i) => (
             <TableHeader key={i}>{title.title}</TableHeader>
           ))}
         </TableRow>
-      </thead>
+      </Thead>
       {props.children}
     </TableEL>
   );
