@@ -34,8 +34,6 @@ async function archiveCar(id) {
 }
 
 async function addCar(data) {
-  //{"Name":"tesla","Model":"model-y","Price":"100","Capacity":"4","Type":"Electric"}
-
   const { data: res, error } = await supabase
     .from("cars")
     .insert([
@@ -52,6 +50,6 @@ async function addCar(data) {
     throw new Error("Could not create new car", error);
   }
 
-  return res
+  return res;
 }
 export { getCars, getCount, archiveCar, addCar };
