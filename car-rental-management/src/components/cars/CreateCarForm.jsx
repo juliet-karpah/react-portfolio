@@ -18,6 +18,9 @@ export default function AddCars(props) {
     props.closeModal();
   };
 
+  const onError = () =>{
+
+  }
   const queryClient = useQueryClient();
 
   const { mutate: addNewCar } = useMutation({
@@ -49,7 +52,7 @@ export default function AddCars(props) {
   ];
 
   return (
-    <Form onSubmit={handleSubmit(addNewCar)}>
+    <Form onSubmit={handleSubmit(addNewCar, onError)}>
       <H1> Add a new car </H1>
       {formContent.map((ct, i) => (
         <Input
