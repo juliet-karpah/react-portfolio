@@ -33,7 +33,7 @@ async function archiveCar(id) {
   return data;
 }
 
-async function addCar(data) {
+async function addCar(data, image) {
   const { data: res, error } = await supabase
     .from("cars")
     .insert([
@@ -43,6 +43,7 @@ async function addCar(data) {
         type: data["Type"],
         model: data["Model"],
         price: parseInt(data["Price"]),
+        image
       },
     ])
     .select();

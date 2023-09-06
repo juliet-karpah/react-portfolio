@@ -1,26 +1,41 @@
 import { useForm } from "react-hook-form";
 import { Form } from "../ui/Form";
-import Input from "../ui/Input";
-import { Label } from "../ui/Label";
+import Input, { FileInput } from "../ui/Input";
 import Select from "../ui/Select";
 import { Button } from "../ui/Button";
 import ButtonGroup from "../ui/ButtonGroup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { H1 } from "../ui/H1";
 import { toast } from "react-hot-toast";
+import { supabaseUrl } from "../../services/supabase";
+import { Label } from "../ui/Label";
+import { useState } from "react";
 import { addCar } from "../../services/requests/api-cars";
+import { uploadImage } from "../../services/requests/shared";
 
 export default function AddCars(props) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset, formState } = useForm();
+  const [ image, setImage ] = useState();
+  const { errors } = formState;
 
-  const AddCar = async (data) => {
-    await addCar(data);
-    props.closeModal();
+  const handleImageChange = (e) => {
+    if (e.target.files.length > 0) {
+      setImage(e.target.files[0]);
+    }
   };
 
-  const onError = () =>{
+  const AddCar = async (data) => {
+    const imageURL = `${supabaseUrl}/storage/v1/object/public/cars/${image.name}`;
+    console.log(imageURL);
+    await addCar(data, imageURL);
+    // uploadimage
+    await uploadImage('cars', image.name, )
+    // props.closeModal();
+  };
 
-  }
+  const onError = (err) => {
+    console.log(err);
+  };
   const queryClient = useQueryClient();
 
   const { mutate: addNewCar } = useMutation({
@@ -30,6 +45,7 @@ export default function AddCars(props) {
       queryClient.invalidateQueries({
         queryKey: ["cars"],
       });
+      reset();
     },
     onError: () => {
       toast.error("Can't Add new Car");
@@ -58,9 +74,12 @@ export default function AddCars(props) {
         <Input
           key={i}
           label={ct.label}
-          registerFn={register(ct.label, { required: true })}
+          registerFn={register(ct.label, {
+            required: `${ct.label} is required`,
+          })}
           type={ct.text}
           required
+          errorMessage={errors[ct.label]?.message}
         />
       ))}
 
@@ -68,17 +87,16 @@ export default function AddCars(props) {
         options={["2", "4", "6"]}
         register={register}
         label="Capacity"
-        required
+        required={`Capacity is required`}
       />
       <Select
         options={["Convertible", "Electric", "SUV"]}
         register={register}
         label="Type"
-        required
+        required={`Type is required`}
       />
-
-      <Label> Image </Label>
-      <Input type="file" />
+      <Label> Image</Label>
+      <FileInput onChange={handleImageChange} />
       <ButtonGroup>
         <Button primary type="submit">
           {" "}

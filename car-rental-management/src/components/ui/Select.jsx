@@ -18,7 +18,7 @@ export default function Select({ options, label, register, required }) {
   return (
     <DIV>
       <Label> {label}</Label>
-      <SelectEl {...register(label, { required })}>
+      <SelectEl {...register(label, { required: required })}>
         {options.map((opt, i) => (
           <option key={i}>{opt}</option>
         ))}

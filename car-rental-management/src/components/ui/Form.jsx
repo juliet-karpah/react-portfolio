@@ -10,3 +10,9 @@ padding: 4rem;
 align-items: center;
 justify-content: space-between;
 `
+
+export const Error = styled.span`
+  font-size: 0.7rem;
+  color: var(--color-primary-variant-light);
+  display: block;
+`;
