@@ -15,7 +15,7 @@ import { uploadImage } from "../../services/requests/shared";
 
 export default function AddCars(props) {
   const { register, handleSubmit, reset, formState } = useForm();
-  const [ image, setImage ] = useState();
+  const [image, setImage] = useState();
   const { errors } = formState;
 
   const handleImageChange = (e) => {
@@ -26,10 +26,11 @@ export default function AddCars(props) {
 
   const AddCar = async (data) => {
     const imageURL = `${supabaseUrl}/storage/v1/object/public/cars/${image.name}`;
-    console.log(imageURL);
+    // upload image
+    await uploadImage("cars", image.name, image);
+
+    //if successful add car
     await addCar(data, imageURL);
-    // uploadimage
-    await uploadImage('cars', image.name, )
     // props.closeModal();
   };
 
