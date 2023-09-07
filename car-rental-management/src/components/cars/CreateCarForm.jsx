@@ -11,6 +11,7 @@ import { useState } from "react";
 import { addCar } from "../../services/requests/api-cars";
 import { uploadImage } from "../../services/requests/shared";
 import { useAddCar } from "../../hooks/createCar";
+import { formContent } from "../../staticData";
 
 export default function AddCars(props) {
   const { register, handleSubmit, formState } = useForm();
@@ -39,21 +40,6 @@ export default function AddCars(props) {
     console.log(err);
   };
 
-
-  const formContent = [
-    {
-      label: "Name",
-      type: "text",
-    },
-    {
-      label: "Model",
-      type: "text",
-    },
-    {
-      label: "Price",
-      type: "number",
-    },
-  ];
 
   return (
     <Form onSubmit={handleSubmit(addNewCar, onError)}>
