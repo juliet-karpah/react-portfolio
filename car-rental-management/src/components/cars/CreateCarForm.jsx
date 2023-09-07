@@ -4,17 +4,16 @@ import Input, { FileInput } from "../ui/Input";
 import Select from "../ui/Select";
 import { Button } from "../ui/Button";
 import ButtonGroup from "../ui/ButtonGroup";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { H1 } from "../ui/H1";
-import { toast } from "react-hot-toast";
 import { supabaseUrl } from "../../services/supabase";
 import { Label } from "../ui/Label";
 import { useState } from "react";
 import { addCar } from "../../services/requests/api-cars";
 import { uploadImage } from "../../services/requests/shared";
+import { useAddCar } from "../../hooks/createCar";
 
 export default function AddCars(props) {
-  const { register, handleSubmit, reset, formState } = useForm();
+  const { register, handleSubmit, formState } = useForm();
   const [image, setImage] = useState();
   const { errors } = formState;
 
@@ -31,27 +30,15 @@ export default function AddCars(props) {
 
     //if successful add car
     await addCar(data, imageURL);
-    // props.closeModal();
+    props.closeModal();
   };
+
+  const { addNewCar } = useAddCar(AddCar);
 
   const onError = (err) => {
     console.log(err);
   };
-  const queryClient = useQueryClient();
 
-  const { mutate: addNewCar } = useMutation({
-    mutationFn: AddCar,
-    onSuccess: () => {
-      toast.success("New car added");
-      queryClient.invalidateQueries({
-        queryKey: ["cars"],
-      });
-      reset();
-    },
-    onError: () => {
-      toast.error("Can't Add new Car");
-    },
-  });
 
   const formContent = [
     {

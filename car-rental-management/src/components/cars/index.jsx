@@ -1,14 +1,15 @@
 import { H2 } from "../ui/H2";
 import { StyledDiv } from "../ui/StyledDiv";
 import Table, { TableData, RowData, TableDataStatus } from "../ui/Table";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { archiveCar, getCars } from "../../services/requests/api-cars";
+import { useQuery } from "@tanstack/react-query";
+import { getCars } from "../../services/requests/api-cars";
 import { Image } from "../ui/image";
 import { Button } from "../ui/Button";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { ModalDiv } from "../ui/Modal";
 import AddCars from "./CreateCarForm";
+import { useArchiveCar } from "../../hooks/archiveCar";
 
 export default function Cars() {
   const tableTitle = [
@@ -40,21 +41,8 @@ export default function Cars() {
 
   const { isLoading, data } = useQuery(["carData"], getCars);
   const [openModal, setOpenModal] = useState(false);
-  const queryClient = useQueryClient();
 
-  const { mutate } = useMutation({
-    mutationFn: (id) => archiveCar(id),
-    onSuccess: () => {
-      toast.success("Car Archived!");
-      queryClient.invalidateQueries({
-        queryKey: ["cars"],
-      });
-    },
-    onError: () => {
-      toast.error("This is an error!");
-    },
-  });
-
+  const { mutate } = useArchiveCar();
   return (
     <StyledDiv>
       <H2>
@@ -66,7 +54,7 @@ export default function Cars() {
         </Button>
       </H2>
       <Table tableTitle={tableTitle}>
-      {openModal && (
+        {openModal && (
           <ModalDiv>
             <AddCars closeModal={() => setOpenModal(false)} />
           </ModalDiv>
@@ -104,7 +92,6 @@ export default function Cars() {
         ) : (
           <div> Loading... </div>
         )}
-
       </Table>
     </StyledDiv>
   );
