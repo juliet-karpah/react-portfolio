@@ -10,5 +10,5 @@ Please click on a title to view details about a project.
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/Vite%20%2B%20React.gif)
 
 ## [Car Rental Service](https://github.com/juliet-karpah/react-portfolio/tree/main/car-rental-management)
-![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/login-restaurant-app.png)
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/login-page.png)
 
