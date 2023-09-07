@@ -39,3 +39,11 @@ export const formContent = [
     { title: "Availability" },
     { title: "" },
   ];
+
+  export const tableTitleRenter = [
+    { title: "Name" },
+    { title: "Phone" },
+    { title: "Email" },
+    { title: "Customer since" },
+    { title: "" },
+  ];

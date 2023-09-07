@@ -8,14 +8,9 @@ import { retrieveDate } from "../../services/helper-functions/date";
 import { useState } from "react";
 import ButtonGroup from "../ui/ButtonGroup";
 import { Button } from "../ui/Button";
+import { tableTitleRenter } from "../../staticData";
 
-const tableTitle = [
-  { title: "Name" },
-  { title: "Phone" },
-  { title: "Email" },
-  { title: "Customer since" },
-  { title: "" },
-];
+
 
 export default function Renters() {
   const [from, setFrom] = useState(0);
@@ -33,9 +28,7 @@ export default function Renters() {
     if (cond > 0) {
       const res = temp + 4;
       setFrom(res);
-      console.log(res);
     }
-    console.log(cond);
   };
 
   const handlePrevPage = () => {
@@ -51,7 +44,7 @@ export default function Renters() {
       {isLoading ? (
         <div>Loading ...</div>
       ) : (
-        <Table tableTitle={tableTitle}>
+        <Table tableTitle={tableTitleRenter}>
           <tbody>
             {renters.map((renter, i) => (
               <RowData key={i}>
