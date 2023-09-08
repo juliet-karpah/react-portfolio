@@ -21,12 +21,13 @@ export const Button = styled.button`
         ? "var(--color-grey-500)"
         : "white"};
     cursor: pointer;
+    transition: all 1s;
   }
   &:disabled{
     background-color: var(--color-grey-200);
     border: none;
     cursor: not-allowed;
-    color: var(--color-secondary-main);
+    color: var(--color-grey-500);
   }
 `;
 
