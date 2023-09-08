@@ -15,9 +15,11 @@ export default function Cars() {
   const { mutate } = useArchiveCar();
   return (
     <StyledDiv>
-      <H2> Cars </H2>
+      <H2>
+        {" "}
+        Cars <AddCarButton />
+      </H2>
       <Table tableTitle={tableTitleCars}>
-        <AddCarButton />
         {!isLoading ? (
           <tbody>
             {data.map((data, id) => (

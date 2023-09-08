@@ -37,13 +37,15 @@ function Modal({ children }) {
 
 function Open({ children, opens }) {
   const { open } = useContext(ModalContext);
-  return cloneElement(children, { onClick: () => {open(opens); console.log("here")}});
+  console.log(opens)
+  return cloneElement(children, {primary:"true", onClick: () => open(opens)});
 }
 
 function Window({ children, name}) {
-  const { opensName, close } = useContext(ModalContext);
+  const { openName, close } = useContext(ModalContext);
+  
 
-  if (name !== opensName) return null;
+  if (name !== openName) return null;
 
   return createPortal(
     <Overlay>
