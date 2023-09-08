@@ -18,7 +18,7 @@ export default function Header() {
           </Link>
 
           <div
-            className="hidden w-full md:block md:w-auto"
+            className="w-full block w-auto"
             id="navbar-solid-bg"
           >
             <ul className="flex gap-4">
