@@ -55,3 +55,8 @@ body {
     opacity: 70%;
 }
 
+@media only screen and (max-width: 600px) {
+    .logo-img{
+        object-fit: contain;
+    }
+}

@@ -11,7 +11,7 @@ export default function FeaturedIn() {
         <h2 className="text-xl font-medium self-center featured-text"> AS FEATURED IN </h2>
         <div className="flex justify-around sm:flex-row flex-col">
           {logos.map((l, i) => (
-            <img className="md:h-16 logo-img" src={l} key={i} />
+            <img className="h-16 logo-img" src={l} key={i} />
           ))}
         </div>
       </div>

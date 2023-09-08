@@ -4,7 +4,7 @@ export default function Hero(){
         <div className="w-full">
         <img className="w-full"  src="/other.jpeg" />
         </div>
-        <div className="w-full">
+        <div className="w-full md:block hidden">
         <img className="w-full"  src="/other3.jpeg" />
         </div>
         </section>
