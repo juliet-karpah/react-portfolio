@@ -17,8 +17,8 @@ export default function Ad() {
         <img className="w-full" src="/other2.jpeg" />
       </div>
 
-      <div className="justify-self-center">
-        <img className="custom-height" src="/bbcream.png" alt="bb cream" />
+      <div className="justify-self-center w-full">
+        <img className="custom-height w-full" src="/bbcream.png" alt="bb cream" />
       </div>
       <div className="w-full md:p-16 flex flex-col gap-8 self-center">
         <h3> The Best Seller.</h3>
