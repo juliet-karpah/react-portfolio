@@ -7,14 +7,19 @@ export const Button = styled.button`
     props.primary ? "white" : "var(--color-primary-main)"};
   padding: 0.25rem 1rem;
   border: none;
+  width: 8rem;
+  height: 3rem;
   border-radius: ${(props) => props.$borderMargin && " 5px"};
   font-family: inherit;
   &:hover {
     background: ${(props) =>
       props.$secondary
-        ? "var(--color-primary-main)"
+        ? "var(--color-grey-100)"
         : "var(--color-secondary-variant-dark)"};
-    color: white;
+    color: ${(props) =>
+      props.$secondary
+        ? "var(--color-grey-500)"
+        : "white"};
     cursor: pointer;
   }
   &:disabled{
@@ -24,3 +29,13 @@ export const Button = styled.button`
     color: var(--color-secondary-main);
   }
 `;
+
+export const ButtonDanger = styled(Button)`
+background-color: var(--color-primary-variant-light);
+color: white;
+&:hover {
+  background: var(--color-primary-variant-dark);
+  color: white;
+  cursor: pointer;
+}
+`

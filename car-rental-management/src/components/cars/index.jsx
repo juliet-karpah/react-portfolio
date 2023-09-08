@@ -4,15 +4,14 @@ import Table, { TableData, RowData, TableDataStatus } from "../ui/Table";
 import { useQuery } from "@tanstack/react-query";
 import { getCars } from "../../services/requests/api-cars";
 import { Image } from "../ui/image";
-import { Button } from "../ui/Button";
-import { useArchiveCar } from "../../hooks/archiveCar";
+
 import { tableTitleCars } from "../../staticData";
 import AddCarButton from "./AddCar";
+import Archive from "./Archive";
 
 export default function Cars() {
   const { isLoading, data } = useQuery(["carData"], getCars);
 
-  const { mutate } = useArchiveCar();
   return (
     <StyledDiv>
       <H2>
@@ -38,14 +37,7 @@ export default function Cars() {
                   {data.available ? "available" : "rented"}
                 </TableDataStatus>
                 <TableData>
-                  {" "}
-                  <Button
-                    disabled={data.available == false}
-                    $secondary
-                    onClick={() => mutate(data.id)}
-                  >
-                    Archive{" "}
-                  </Button>{" "}
+                  <Archive data={data}/>
                 </TableData>
               </RowData>
             ))}

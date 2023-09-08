@@ -7,6 +7,7 @@ const ModalDiv = styled.div`
   background-color: white;
   border-radius: var(--border-radius-lg);
   left: 35%;
+  top: 10%;
 `;
 
 const Overlay = styled.div`
@@ -46,7 +47,6 @@ function Open({ children, opens }) {
   const { open } = useContext(ModalContext);
 
   return cloneElement(children, {
-    primary: "true",
     onClick: () => open(opens),
   });
 }
