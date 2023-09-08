@@ -5,34 +5,19 @@ import { useQuery } from "@tanstack/react-query";
 import { getCars } from "../../services/requests/api-cars";
 import { Image } from "../ui/image";
 import { Button } from "../ui/Button";
-import { useState } from "react";
-import { ModalDiv } from "../ui/Modal";
-import AddCars from "./CreateCarForm";
 import { useArchiveCar } from "../../hooks/archiveCar";
 import { tableTitleCars } from "../../staticData";
+import AddCarButton from "./AddCar";
 
 export default function Cars() {
-
   const { isLoading, data } = useQuery(["carData"], getCars);
-  const [openModal, setOpenModal] = useState(false);
 
   const { mutate } = useArchiveCar();
   return (
     <StyledDiv>
-      <H2>
-        {" "}
-        Cars{" "}
-        <Button primary onClick={() => setOpenModal(true)}>
-          {" "}
-          Add Car{" "}
-        </Button>
-      </H2>
+      <H2> Cars </H2>
       <Table tableTitle={tableTitleCars}>
-        {openModal && (
-          <ModalDiv>
-            <AddCars closeModal={() => setOpenModal(false)} />
-          </ModalDiv>
-        )}
+        <AddCarButton />
         {!isLoading ? (
           <tbody>
             {data.map((data, id) => (

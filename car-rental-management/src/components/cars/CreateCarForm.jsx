@@ -40,7 +40,6 @@ export default function AddCars(props) {
     console.log(err);
   };
 
-
   return (
     <Form onSubmit={handleSubmit(addNewCar, onError)}>
       <H1> Add a new car </H1>

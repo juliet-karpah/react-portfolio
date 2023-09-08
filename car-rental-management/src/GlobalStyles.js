@@ -23,6 +23,7 @@ export const GlobalStyles = createGlobalStyle`
         --border-radius-md: 5px;
         --border-radius-lg: 7px;
         --border-radius-avatar: 50%;
+        --backdrop-color: rgba(255, 255, 255, 0.1);
     }
 
     body {
