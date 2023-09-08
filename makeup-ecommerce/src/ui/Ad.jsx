@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Ad() {
   return (
     <section className="grid sm:grid-cols-2 my-36 mx-8  gap-y-8">
-      <div className="w-full p-16 flex flex-col gap-8 ad-bg">
+      <div className="w-full md:p-16 flex flex-col gap-8 ad-bg">
         <h3 className="text-2xl"> Our Mission</h3>
         <p>
           {" "}
@@ -20,7 +20,7 @@ export default function Ad() {
       <div className="justify-self-center">
         <img className="custom-height" src="/bbcream.png" alt="bb cream" />
       </div>
-      <div className="w-full p-16 flex flex-col gap-8 self-center">
+      <div className="w-full md:p-16 flex flex-col gap-8 self-center">
         <h3> The Best Seller.</h3>
         <p className="text-2xl">
           {" "}
