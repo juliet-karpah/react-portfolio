@@ -11,7 +11,7 @@ export default function Detail(props) {
         <Rating avgRating={props.avgRating} ratingsCount={props.ratingsCount} />
         <p className="text-md">{props.detail}</p>
 
-        <button href="#" className="btn text-center" onClick={props.onClick}>
+        <button href="#" className="btn md:self-start text-center" onClick={props.onClick}>
           {" "}
           {props.btnTitle}
         </button>

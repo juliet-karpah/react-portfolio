@@ -31,11 +31,7 @@ export default function Description(props) {
             </button>
           </li>
         </ul>
-        {openDescription ? (
-          <p>{props.description}</p>
-        ) : (
-          <p>{props.ingredients}</p>
-        )}
+          <p className="p-4">{openDescription ? props.description:props.ingredients }</p>
       </div>
       <div className="w-full h-[36rem]">
         <img className="h-full object-cover" src={props.src} />
