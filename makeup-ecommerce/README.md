@@ -3,8 +3,8 @@ A simple ecommerce web application built with the latest [reactjs](https://react
 
 ## Demo
 
-This web app has not been deployed. Here are screenrecordings of the different features from localhost.
-
+### Deployed Link
+[juliet's beauty website](https://makeupecommerce.vercel.app/)
 ### Home page
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/Vite%20%2B%20React.gif)
 
