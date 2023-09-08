@@ -6,8 +6,7 @@ const ModalDiv = styled.div`
   position: fixed;
   background-color: white;
   border-radius: var(--border-radius-lg);
-  top: 50%;
-  left: 50%;
+  left: 35%;
 `;
 
 const Overlay = styled.div`
@@ -20,6 +19,14 @@ const Overlay = styled.div`
   backdrop-filter: blur(4px);
   z-index: 1000;
   transition: all 0.5s;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  left: 93%;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
 `;
 const ModalContext = createContext();
 
@@ -37,20 +44,22 @@ function Modal({ children }) {
 
 function Open({ children, opens }) {
   const { open } = useContext(ModalContext);
-  console.log(opens)
-  return cloneElement(children, {primary:"true", onClick: () => open(opens)});
+  console.log(opens);
+  return cloneElement(children, {
+    primary: "true",
+    onClick: () => open(opens),
+  });
 }
 
-function Window({ children, name}) {
+function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
-  
 
   if (name !== openName) return null;
 
   return createPortal(
     <Overlay>
       <ModalDiv>
-        <button onClick={close}>
+        <Button onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -62,11 +71,11 @@ function Window({ children, name}) {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
+              d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-        </button>
-        <div> {cloneElement(children,{closeModal: close} )} </div>
+        </Button>
+        <div> {cloneElement(children, { closeModal: close })} </div>
       </ModalDiv>
     </Overlay>,
     document.body
