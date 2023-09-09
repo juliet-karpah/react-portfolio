@@ -2,7 +2,7 @@ export default function SideDrawer(props) {
   return (
     <div
       id="drawer-right-example"
-      className="absolute top-0 w-2/5 right-0 z-40 h-screen p-4 ad-bg"
+      className="absolute top-0 sm:w-2/5 right-0 z-40 h-screen p-4 ad-bg"
       tabIndex="-1"
       aria-labelledby="drawer-right-label"
     >
