@@ -3,8 +3,8 @@ import { useState } from "react";
 export default function Description(props) {
   const [openDescription, setOpenDescription] = useState(true);
   return (
-    <section className="grid md:p-16 p-4 sm:grid-cols-2 my-36 sm:ml-12 ">
-      <div className="w-full  flex flex-col gap-8 ad-bg h-[36rem]">
+    <section className="grid p-4 sm:grid-cols-2 my-36 sm:ml-12 ">
+      <div className="w-full sm:p-16  flex flex-col gap-8 ad-bg h-[36rem]">
         <ul
           onClick={() => setOpenDescription(!openDescription)}
           className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-[#372316]"
