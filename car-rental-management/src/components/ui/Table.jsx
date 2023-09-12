@@ -57,11 +57,12 @@ export default function Table(props) {
         <TableRow>
           {props.tableTitle.map((title, i) => (
             <TableHeader key={i}>
-             <ImageDiv noHeight>
-             {title.key && <SortBotton onClick={() => props.sortData(title.key)} /> }
-              {title.title}
-             </ImageDiv>
-
+              <ImageDiv noHeight>
+                {title.key && (
+                  <SortBotton onClick={() => props.sortData(title.key)} />
+                )}
+                {title.title}
+              </ImageDiv>
             </TableHeader>
           ))}
         </TableRow>

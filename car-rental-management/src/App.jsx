@@ -38,6 +38,10 @@ function App() {
           element: <ReservationsPage />,
         },
         {
+          path: "/upcoming-reservations",
+          element: <ReservationsPage />,
+        },
+        {
           path:"/messages",
           element: <MessagesPage />
         },

@@ -195,8 +195,13 @@ export default function MainNav() {
             </CustomSVG>
           </NavButton>
           <NavList>
-            <li>
+          <li>
               <NavlinkSmall to={"/current-reservations"}>
+                <SpanSmall>In-Progress</SpanSmall>
+              </NavlinkSmall>
+            </li>
+            <li>
+              <NavlinkSmall to={"/upcoming-reservations"}>
                 <SpanSmall>Upcoming</SpanSmall>
               </NavlinkSmall>
             </li>
