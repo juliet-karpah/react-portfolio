@@ -8,9 +8,30 @@ import { Image } from "../ui/image";
 import { tableTitleCars } from "../../staticData";
 import AddCarButton from "./AddCar";
 import Archive from "./Archive";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function Cars() {
   const { isLoading, data } = useQuery(["carData"], getCars);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [test, setTest] = useState({ maxCapacity: "up", price: "up" })
+
+  const handleSortData = (key) => {
+    searchParams.set("sortBy", key);
+    setSearchParams(searchParams);
+    if(test[key] == "up"){
+      data.sort((a, b) => a[key] - b[key])
+      setTest(prevState => ({
+        ...prevState, [key]:"down"
+      }))
+      return
+    }else{
+      data.sort((a, b) => b[key] - a[key]);
+      setTest(prevState => ({
+        ...prevState, [key]:"up"
+      }))
+    }
+  };
 
   return (
     <StyledDiv>
@@ -18,7 +39,7 @@ export default function Cars() {
         {" "}
         Cars <AddCarButton />
       </H2>
-      <Table tableTitle={tableTitleCars}>
+      <Table tableTitle={tableTitleCars} sortData={handleSortData}>
         {!isLoading ? (
           <tbody>
             {data.map((data, id) => (
@@ -27,7 +48,7 @@ export default function Cars() {
                   <Image variation="small" src={data.image} />
                 </TableData>
                 <TableData>{data.name}</TableData>
-                <TableData>{data.maxCapacity}</TableData>
+                <TableData> {data.maxCapacity}</TableData>
                 <TableData>{data.type}</TableData>
                 <TableData>{data.model}</TableData>
                 <TableData>${data.price}/hr</TableData>
@@ -37,7 +58,7 @@ export default function Cars() {
                   {data.available ? "available" : "rented"}
                 </TableDataStatus>
                 <TableData>
-                  <Archive data={data}/>
+                  <Archive data={data} />
                 </TableData>
               </RowData>
             ))}

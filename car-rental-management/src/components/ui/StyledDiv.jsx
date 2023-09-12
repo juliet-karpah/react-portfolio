@@ -24,7 +24,7 @@ export const ProfileDiv = styled.div`
 `;
 
 export const ImageDiv = styled.div`
-height: 100px;
+height: ${props => props.noHeight ? "none": "100px"};
 display:flex;
 align-items: center;
 `
