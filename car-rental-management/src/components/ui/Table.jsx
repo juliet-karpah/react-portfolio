@@ -35,7 +35,6 @@ const TableHeader = styled.th`
 `;
 
 export const TableData = styled.td`
-  width: 200px;
   text-transform: Capitalize;
 
   &:last-child {

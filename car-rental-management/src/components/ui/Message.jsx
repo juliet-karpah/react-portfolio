@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { H2 } from "./H2";
 import ProfileCard from "./ProfileCard";
 import { ImageDiv, ProfileDiv, StyledDiv } from "./StyledDiv";
-import { Button } from "./Button";
+import { Button, ButtonInit } from "./Button";
 import { Textarea } from "./Textarea";
 import { retrieveTime } from "../../services/helper-functions/date";
 import MessageCard from "./MessageCard";
@@ -32,14 +32,14 @@ function MessageList(props) {
     <StyledDiv variation={"messages"}>
       <H2>Messages</H2>
       {user?.map((user, i) => (
-        <Button key={i} onClick={() => props.onClick(user.id)}>
+        <ButtonInit key={i} onClick={() => props.onClick(user.id)}>
           <ProfileCard
             urlPhoto={user.image}
             key={i}
             name={user.full_name}
             role={retrieveTime(user.chats[0]?.created_at)}
           />
-        </Button>
+        </ButtonInit>
       ))}
     </StyledDiv>
   );

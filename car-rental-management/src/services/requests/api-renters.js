@@ -1,15 +1,18 @@
+import { PAGE_SIZE } from "../constants";
 import { supabase } from "../supabase";
 
-async function getRenters(from = 0) {
-  let { data: renters, error } = await supabase
+async function getRenters(page) {
+  const from = (page - 1) * PAGE_SIZE
+  const to = from + PAGE_SIZE - 1
+  let { data: renters, error, count } = await supabase
     .from("renters")
     .select("*")
-    .range(from, from + 4);
+    .range(from, to);
 
   if (error) {
     throw new Error(error);
   }
-  return renters;
+  return {renters, count};
 }
 
 async function getRenterByID(id){

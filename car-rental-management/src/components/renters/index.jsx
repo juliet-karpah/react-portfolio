@@ -1,43 +1,16 @@
-import { getRenters } from "../../services/requests/api-renters";
 import { H2 } from "../ui/H2";
 import { StyledDiv } from "../ui/StyledDiv";
-import { useQuery } from "@tanstack/react-query";
 import Table, { RowData, TableData } from "../ui/Table";
 import ProfileCard from "../ui/ProfileCard";
 import { retrieveDate } from "../../services/helper-functions/date";
-import { useState } from "react";
-import ButtonGroup from "../ui/ButtonGroup";
-import { Button } from "../ui/Button";
 import { tableTitleRenter } from "../../staticData";
-
-
+import Pagination from "../ui/Pagination";
+import UseRenters from "../../hooks/useRenters";
 
 export default function Renters() {
-  const [from, setFrom] = useState(0);
 
-  const { data: renters, isLoading } = useQuery({
-    queryKey: ["renters", from],
-    queryFn: () => getRenters(from),
-    keepPreviousData: true,
-  });
+  const {renters, count, isLoading} = UseRenters()
 
-  const handleNextPage = () => {
-    let total = 10;
-    let temp = from;
-    const cond = total / (temp + 1) - 4;
-    if (cond > 0) {
-      const res = temp + 4;
-      setFrom(res);
-    }
-  };
-
-  const handlePrevPage = () => {
-    let temp = from;
-    if (temp > 0) {
-      const res = temp - 1;
-      setFrom(res);
-    }
-  };
   return (
     <StyledDiv>
       <H2>Renters</H2>
@@ -78,14 +51,8 @@ export default function Renters() {
           </tbody>
         </Table>
       )}
-      <ButtonGroup>
-        <Button primary onClick={handlePrevPage}>
-          Prev
-        </Button>
-        <Button secondary onClick={handleNextPage}>
-          Next{" "}
-        </Button>
-      </ButtonGroup>
+      <Pagination count={count}/>
+
     </StyledDiv>
   );
 }

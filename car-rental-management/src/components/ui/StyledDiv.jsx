@@ -15,6 +15,13 @@ export const StyledDiv = styled.div`
   ${(props) => variation[props.variation]}
 `;
 
+export const StyledRow = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+
 
 export const ProfileDiv = styled.div`
   display: flex;

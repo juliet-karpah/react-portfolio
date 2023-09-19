@@ -28,7 +28,7 @@ export default function Ad() {
           50 and vitamin C.{" "}
         </p>
 
-        <Link href="#" className="btn md:self-start text-center">
+        <Link to={'/product/FZyhRIVytej0IDOsTKbG'} className="btn md:self-start text-center">
           {" "}
           Buy Now{" "}
         </Link>

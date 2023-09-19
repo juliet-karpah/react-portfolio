@@ -3,7 +3,7 @@ import { supabase } from "../supabase";
 async function getReservations(pathname) {
   let query = supabase
     .from("reservations")
-    .select("*, cars(id, price), renters(full_name)");
+    .select("*, cars(id, price), renters(full_name)").order("startTime");
   if (pathname == "/upcoming-reservations") {
     query = query.eq("status", "upcoming");
   } else if (pathname == "/past-reservations") {
