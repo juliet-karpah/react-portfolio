@@ -12,9 +12,8 @@ export default function ProtectedRoute({ children }) {
       navigate("/login");
     }
   }, [isAuthenticated, isLoading, navigate]);
-  
-  if (isLoading) return <div>Loading ...</div>;
 
+  if (isLoading) return <div>Loading ...</div>;
 
 
   if (isAuthenticated) return children;
