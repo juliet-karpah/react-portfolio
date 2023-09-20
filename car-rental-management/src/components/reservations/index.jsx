@@ -15,9 +15,12 @@ import { getReservations } from "../../services/requests/api-reservations";
 import { reservationTableTitle } from "../../staticData";
 import { useLocation } from "react-router-dom";
 import Empty from "../ui/Empty";
+import Button from "../ui/StyledButton";
+import { useState } from "react";
 
 export default function Reservations() {
   const location = useLocation();
+  const [open, setOpen] = useState(false)
 
   const { data: reservations } = useQuery({
     queryKey: ["reservations", location.pathname],
@@ -44,6 +47,30 @@ export default function Reservations() {
           <tbody>
             {reservations.map((data, i) => (
               <RowData key={i}>
+                <TableData>
+                  <Button onClick={()=> setOpen(!open)}
+                    icon={!open ? 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        />
+                      </svg>
+                    :<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                    <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clipRule="evenodd" />
+                  </svg>
+                  
+                  }
+                  ></Button>
+                </TableData>
                 <TableData>{retrieveTime(data["startTime"])}</TableData>
                 <TableData>{data["renters"]["full_name"]}</TableData>
                 <TableData>{data["car_id"]}</TableData>
@@ -57,22 +84,6 @@ export default function Reservations() {
                   $
                   {data["cars"]["price"] *
                     hours(data["startTime"], data["endTime"])}
-                </TableData>
-                <TableData>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                    />
-                  </svg>
                 </TableData>
               </RowData>
             ))}

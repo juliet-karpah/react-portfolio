@@ -23,7 +23,6 @@ margin: 0.5rem 0.1rem;
 `
 
 export default function Input({ label, registerFn, type, errorMessage}) {
-  console.log(errorMessage)
   return (
     <DIV>
       <Label> {label} </Label>

@@ -53,6 +53,7 @@ export const tableTitleRenter = [
 
 
 export const reservationTableTitle = [
+  { title: "" },
   {
     title: (
       <svg
@@ -74,5 +75,5 @@ export const reservationTableTitle = [
   { title: "STATUS" },
   { title: "Duration(hr)" },
   { title: "amount" },
-  { title: "" },
+
 ];

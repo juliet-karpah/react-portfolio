@@ -19,7 +19,6 @@ const TableRow = styled.tr`
 `;
 
 export const RowData = styled(TableRow)`
-  cursor: pointer;
   &:last-child {
     border: none;
   }
