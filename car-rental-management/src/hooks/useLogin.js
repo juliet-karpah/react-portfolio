@@ -14,8 +14,8 @@ export default function useLogin() {
   } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-      navigate("/metrics");
       queryClient.setQueryData(["user"], user.user);
+      navigate("/metrics");
     },
     onError: () => toast.error("Login failed"),
   });
