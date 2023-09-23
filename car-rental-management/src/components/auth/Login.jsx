@@ -8,8 +8,8 @@ import { email, password } from "../../services/config";
 export default function LoginForm() {
   const { login, isLoading } = useLogin();
 
-  const handleSubmit = (error) => {
-    error.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     login({ email, password });
   };
   return (
