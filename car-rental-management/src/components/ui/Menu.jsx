@@ -11,7 +11,6 @@ const Menu = styled.div`
 
 const StyledList = styled.ul`
   position: fixed;
-
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
@@ -39,22 +38,39 @@ function Menus({ children }) {
 
 function List({ id, children }) {
   const { openId, position, close } = useContext(MenuContext);
-  const ref = useOutsideClick(close);
 
   if (openId !== id) return null;
 
   return createPortal(
-    <StyledList position={position} ref={ref}>
+    <StyledList position={position}>
       {children}
     </StyledList>,
     document.body
   );
 }
 
+function Button({ children, icon, onClick }) {
+  const { close } = useContext(MenuContext);
+
+  function handleClick() {
+    onClick?.();
+    close();
+  }
+
+  return (
+    <li>
+      <StyledButton onClick={handleClick}>
+        {icon}
+        <span>{children}</span>
+      </StyledButton>
+    </li>
+  );
+}
 
 
 
 Menus.Menu = Menu;
 Menus.List = List;
+Menus.Button = Button;
 
 export default Menus;

@@ -6,9 +6,9 @@ export const ButtonInit = styled.button`
   color: ${(props) => (props.primary ? "white" : "var(--color-primary-main)")};
   padding: 0.25rem 1rem;
   border: none;
-  border-radius: ${(props) => props.$borderMargin && " 5px"};
   font-family: inherit;
-  &:hover {
+  width: ${(props) => props.message && "100%"};
+  &:hover{
     background: ${(props) =>
       props.$secondary
         ? "var(--color-grey-100)"

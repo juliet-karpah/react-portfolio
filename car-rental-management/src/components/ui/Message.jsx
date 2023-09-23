@@ -4,9 +4,14 @@ import ProfileCard from "./ProfileCard";
 import { ImageDiv, ProfileDiv, StyledDiv } from "./StyledDiv";
 import { Button, ButtonInit } from "./Button";
 import { Textarea } from "./Textarea";
-import { retrieveTime } from "../../services/helper-functions/date";
+import {
+  retrieveDate,
+  retrieveTime,
+} from "../../services/helper-functions/date";
 import MessageCard from "./MessageCard";
 import { Image } from "./image";
+import Input from "./Input";
+import AddMessageButton from "../messages/AddMessage";
 
 const MessageTitle = styled.div`
   display: flex;
@@ -18,40 +23,60 @@ const MessageContent = styled.section`
   height: 400px;
 `;
 
-const MessageForm = styled.form`
+const FormGroup = styled.form`
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 10px;
+  gap: 20px;
+  margin: 20px;
+  align-items: center;
+`;
+
+const DIV = styled.div`
+  overflow-y: auto;
+  height: 500px;
+`;
+
+const MessageForm = styled(FormGroup)`
   position: relative;
-  top: 130px;
+  top: 10%;
 `;
 
 function MessageList(props) {
-  const user = props.users?.filter((user) => user.chats.length > 0);
+
   return (
     <StyledDiv variation={"messages"}>
-      <H2>Messages</H2>
-      {user?.map((user, i) => (
-        <ButtonInit key={i} onClick={() => props.onClick(user.id)}>
-          <ProfileCard
-            urlPhoto={user.image}
-            key={i}
-            name={user.full_name}
-            role={retrieveTime(user.chats[0]?.created_at)}
-          />
-        </ButtonInit>
-      ))}
+      <H2>
+        <span>Messages </span>
+        <AddMessageButton />
+      </H2>
+      <FormGroup>
+        <Input type="text" onChange={props.updateUsers} />
+      </FormGroup>
+      <DIV>
+        {props.users?.map((user, i) => (
+          <ButtonInit message key={i} onClick={() => props.onClick(user.from.id)}>
+            <ProfileCard
+              urlPhoto={user.from.image}
+              key={i}
+              name={user.from.full_name}
+              role={retrieveDate(user.created_at)}
+            />
+          </ButtonInit>
+        ))}
+      </DIV>
     </StyledDiv>
   );
 }
 
 function MessageExpand(props) {
-  const currentUserMessage = props.chats.length ? props.chats[0].chats : [];
-  const currentUser = props.chats.length ? props.chats[0] : []
+  const currentUserMessage = props.chats;
+  const currentUser = props.chats.length ? props.chats[0]?.from : {};
   return (
     <StyledDiv variation={"messages"}>
       <MessageTitle>
-        <ProfileCard urlPhoto={currentUser.image} name={currentUser.full_name} />
+        <ProfileCard
+          urlPhoto={currentUser.image}
+          name={currentUser.full_name}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -69,21 +94,22 @@ function MessageExpand(props) {
       </MessageTitle>
 
       <MessageContent>
-        {currentUserMessage.map((chat, i) => (
+        {currentUserMessage?.map((chat, i) => (
           <ProfileDiv key={i}>
             <ImageDiv>
               <Image
-                src={currentUser ? currentUser.image: "/profile-pic.png"}
+                src={currentUser ? currentUser.image : "/profile-pic.png"}
                 variation={"rounded"}
               />
             </ImageDiv>
             <MessageCard key={i} message={chat.message} />
+            <span> {retrieveTime(chat.created_at)} </span>
           </ProfileDiv>
         ))}
       </MessageContent>
       <MessageForm>
         <Textarea size="small" />
-        <Button primary $borderMargin>
+        <Button primary>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

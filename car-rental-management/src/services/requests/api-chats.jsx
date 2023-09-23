@@ -1,13 +1,12 @@
 import { supabase } from "../supabase";
 
 async function getChats() {
-  const { data, error } = await supabase.from("renters").select(`
+  const { data, error } = await supabase.from("chats").select(`
   id,
   created_at,
-  full_name,
-  image,
-  chats (id, created_at, from, message)
-  `).order('created_at', { ascending: false })
+  message,
+  from (id, full_name, image)
+  `)
 
   if (error) {
     throw new Error(error);

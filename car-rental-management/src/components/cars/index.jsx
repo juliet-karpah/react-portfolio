@@ -12,7 +12,7 @@ import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 
 export default function Cars() {
-  const { isLoading, data } = useQuery(["carData"], getCars);
+  const { isLoading, data } = useQuery({queryKey:["carData"], queryFn:getCars});
   const [searchParams, setSearchParams] = useSearchParams();
   const [test, setTest] = useState({ maxCapacity: "up", price: "up" })
 

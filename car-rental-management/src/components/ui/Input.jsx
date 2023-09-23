@@ -17,15 +17,22 @@ export const FileInput = styled.input.attrs({ type: "file" })`
   background: #f2f3f5;
   width: 300px;
 `;
-const DIV = styled.div`
+export const DIV = styled.div`
   margin: 0.5rem 0.1rem;
 `;
 
-export default function Input({ label, registerFn, value, type, errorMessage }) {
+export default function Input({
+  label,
+  registerFn,
+  value,
+  type,
+  errorMessage,
+  onChange
+}) {
   return (
     <DIV>
       <Label> {label} </Label>
-      <InputEL type={type} {...registerFn} value={value}/>
+      <InputEL type={type} {...registerFn} value={value} onChange={onChange} />
       <Error> {errorMessage} </Error>
     </DIV>
   );

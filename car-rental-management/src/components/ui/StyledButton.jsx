@@ -7,7 +7,6 @@ const StyledButton = styled.button`
   transition: all 0.2s;
   display: flex;
   cursor: pointer;
-
   & svg {
     width: 1.6rem;
     height: 1.6rem;
@@ -16,6 +15,6 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function Button({ icon, onClick }) {
+export default function IconButton({ icon, onClick }) {
   return <StyledButton onClick={onClick}>{icon}</StyledButton>;
 }
