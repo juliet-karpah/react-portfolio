@@ -6,12 +6,29 @@ async function getChats() {
   created_at,
   message,
   from (id, full_name, image)
-  `)
+  `);
 
   if (error) {
     throw new Error(error);
   }
   return data;
 }
+/*
 
-export { getChats };
+data = {
+  message: "",
+  to: id
+}
+
+*/
+async function addChat(data) {
+  if (!data.message || !data.to) throw new Error("add message or user");
+  const { data: response, error } = await supabase
+    .from("chats")
+    .insert([data])
+    .select();
+  if (error) throw new Error("Error while adding message", error);
+  return response;
+}
+
+export { getChats, addChat };

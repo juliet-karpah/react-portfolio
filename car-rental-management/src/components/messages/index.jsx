@@ -66,6 +66,7 @@ export default function Messages() {
           />
           <MessageExpand
             chats={messages.filter((mes) => mes.from.id == currentChat)}
+            id={currentChat}
           />
         </MessagesDiv>
       )}

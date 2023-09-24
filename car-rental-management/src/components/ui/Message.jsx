@@ -12,6 +12,11 @@ import MessageCard from "./MessageCard";
 import { Image } from "./image";
 import Input from "./Input";
 import AddMessageButton from "../messages/AddMessage";
+import { useForm } from "react-hook-form";
+import { useMutation, QueryClient } from "@tanstack/react-query";
+import { addChat } from "../../services/requests/api-chats";
+import toast from "react-hot-toast";
+import UseRenters from "../../hooks/useRenters";
 
 const MessageTitle = styled.div`
   display: flex;
@@ -71,8 +76,27 @@ function MessageList(props) {
 }
 
 function MessageExpand(props) {
+  const { renters } = UseRenters()
+  console.log(renters?.filter(renter => renter.id === props.id))
+
   const currentUserMessage = props.chats;
-  const currentUser = props.chats.length ? props.chats[0]?.from : {};
+  const currentUser = props.chats.length ? props.chats[0]?.from : renters?.filter(renter => renter.id === props.id)[0];
+  const queryClient = new QueryClient();
+  const { register, handleSubmit } = useForm();
+
+  const { mutate } = useMutation({
+    mutationFn: (data) => addChat({message: data.message, to: currentUser.id}),
+    onSuccess: () => {
+      toast.success("message sent");
+      queryClient.invalidateQueries({
+        queryKey: ["chats"],
+      });
+    },
+    onError: () => {
+      toast.error("failed to send message");
+    },
+  });
+
   return (
     <StyledDiv variation={"messages"}>
       <MessageTitle>
@@ -112,9 +136,9 @@ function MessageExpand(props) {
           </ProfileDiv>
         ))}
       </MessageContent>
-      <MessageForm>
-        <Textarea size="small" />
-        <Button primary>
+      <MessageForm onSubmit={handleSubmit(mutate)}>
+        <Textarea size="small" {...register("message")} />
+        <Button primary type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
