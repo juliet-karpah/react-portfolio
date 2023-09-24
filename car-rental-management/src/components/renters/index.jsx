@@ -9,7 +9,7 @@ import UseRenters from "../../hooks/useRenters";
 
 export default function Renters() {
 
-  const {renters, count, isLoading} = UseRenters()
+  const {renters, count, isLoading} = UseRenters(true)
 
   return (
     <StyledDiv>

@@ -32,14 +32,13 @@ export default function Messages() {
         return { created_at: el.created_at, from: el.from };
       });
       setUsersList(users)
-  }, [])
+  }, [isLoading])
 
 
   const updateUsers = (e) => {
     const term = e.target.value;
     if(term){
       let usersNew = usersList.filter((user) => {
-        console.log(user.from.full_name.replace(" ", "").toLowerCase(), term, user.from.full_name.toLowerCase().includes(term.toLowerCase()))
         return user.from.full_name.toLowerCase().includes(term.toLowerCase());
       });
       setUsersList(usersNew)

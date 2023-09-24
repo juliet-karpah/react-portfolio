@@ -30,14 +30,14 @@ const FormGroup = styled.form`
   align-items: center;
 `;
 
-const DIV = styled.div`
+export const DIV = styled.div`
   overflow-y: auto;
   height: 500px;
 `;
 
 const MessageForm = styled(FormGroup)`
   position: relative;
-  top: 10%;
+  top:15%;
 `;
 
 function MessageList(props) {

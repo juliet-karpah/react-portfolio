@@ -1,13 +1,12 @@
 import { PAGE_SIZE } from "../constants";
 import { supabase } from "../supabase";
 
-async function getRenters(page) {
+async function getRenters(page, pag=false) {
   const from = (page - 1) * PAGE_SIZE
   const to = from + PAGE_SIZE - 1
-  let { data: renters, error, count } = await supabase
-    .from("renters")
-    .select("*")
-    .range(from, to);
+  let query = supabase.from("renters").select("*")
+  
+  let { data: renters, error, count } = pag ? await query.range(from, to) : await query
 
   if (error) {
     throw new Error(error);

@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getRenters } from "../services/requests/api-renters";
 import { PAGE_SIZE } from "../services/constants";
 
-export default function UseRenters() {
+export default function UseRenters(pag) {
 
     const [searchParams] = useSearchParams()
     const queryClient =  useQueryClient()
@@ -14,7 +14,7 @@ export default function UseRenters() {
   
   const { data: { renters, count } = {}, isLoading } = useQuery({
     queryKey: ["renters", currentPage],
-    queryFn: () => getRenters(currentPage),
+    queryFn: () => getRenters(currentPage, pag),
     keepPreviousData: true,
   });
 

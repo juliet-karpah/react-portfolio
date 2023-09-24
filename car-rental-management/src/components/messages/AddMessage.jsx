@@ -4,17 +4,16 @@ import Modal from "../ui/Modal";
 import ProfileCard from "../ui/ProfileCard";
 import IconButton from "../ui/StyledButton";
 import UseRenters from "../../hooks/useRenters";
+import { DIV } from "../ui/Message";
 
 export const StyledList = styled.ul`
   position: fixed;
-  background-color: var(--color-grey-100);
-  box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
 `;
 
 export default function AddMessageButton(props) {
-    const {renters} = UseRenters()
-    console.log(renters)
+  const { renters } = UseRenters();
+  console.log(renters);
   return (
     <Modal>
       <Modal.Open opens="add-message">
@@ -39,14 +38,13 @@ export default function AddMessageButton(props) {
       </Modal.Open>
       <Modal.Window name="add-message">
         <StyledList>
-            {renters?.map((renter,i) => (
-                <ButtonInit key={i} message onClick={() => props.onClick(renter.id)}>
-                    <ProfileCard 
-                    urlPhoto={renter.image}
-                    name={renter.full_name}
-                     />
-                </ButtonInit>
+          <DIV>
+            {renters?.map((renter, i) => (
+              <ButtonInit key={i} onClick={() => props.onClick(renter.id)}>
+                <ProfileCard urlPhoto={renter.image} name={renter.full_name} />
+              </ButtonInit>
             ))}
+          </DIV>
         </StyledList>
       </Modal.Window>
     </Modal>

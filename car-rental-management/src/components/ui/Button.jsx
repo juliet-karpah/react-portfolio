@@ -7,7 +7,7 @@ export const ButtonInit = styled.button`
   padding: 0.25rem 1rem;
   border: none;
   font-family: inherit;
-  width: ${(props) => props.message && "100%"};
+  width: ${(props) => props.message ? "100%" : "60%"};
   &:hover{
     background: ${(props) =>
       props.$secondary
