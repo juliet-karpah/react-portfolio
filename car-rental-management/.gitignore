@@ -26,3 +26,4 @@ dist-ssr
 
 # supabase
 src/services/config.js
+.env

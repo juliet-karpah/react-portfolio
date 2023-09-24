@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { H2 } from "./H2";
-import ProfileCard from "./ProfileCard";
-import { ImageDiv, ProfileDiv, StyledDiv } from "./StyledDiv";
+import ProfileCard, { Span } from "./ProfileCard";
+import { ImageDiv, ProfileDiv, StyledCol, StyledDiv } from "./StyledDiv";
 import { Button, ButtonInit } from "./Button";
 import { Textarea } from "./Textarea";
 import {
@@ -37,23 +37,26 @@ export const DIV = styled.div`
 
 const MessageForm = styled(FormGroup)`
   position: relative;
-  top:15%;
+  top: 10%;
 `;
 
 function MessageList(props) {
-
   return (
     <StyledDiv variation={"messages"}>
       <H2>
         <span>Messages </span>
-        <AddMessageButton onClick={props.onClick}/>
+        <AddMessageButton onClick={props.onClick} />
       </H2>
       <FormGroup>
         <Input type="text" onChange={props.updateUsers} />
       </FormGroup>
       <DIV>
         {props.users?.map((user, i) => (
-          <ButtonInit message key={i} onClick={() => props.onClick(user.from.id)}>
+          <ButtonInit
+            message
+            key={i}
+            onClick={() => props.onClick(user.from.id)}
+          >
             <ProfileCard
               urlPhoto={user.from.image}
               key={i}
@@ -102,8 +105,10 @@ function MessageExpand(props) {
                 variation={"rounded"}
               />
             </ImageDiv>
-            <MessageCard key={i} message={chat.message} />
-            <span> {retrieveTime(chat.created_at)} </span>
+            <StyledCol>
+              <MessageCard key={i} message={chat.message} />
+              <Span> {retrieveTime(chat.created_at)} </Span>
+            </StyledCol>
           </ProfileDiv>
         ))}
       </MessageContent>

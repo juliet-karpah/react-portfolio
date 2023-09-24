@@ -21,6 +21,11 @@ export const StyledRow = styled.div`
   justify-content: space-between;
 `;
 
+export const StyledCol = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 
 
 export const ProfileDiv = styled.div`

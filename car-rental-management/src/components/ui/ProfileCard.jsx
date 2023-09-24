@@ -8,7 +8,7 @@ const InfoDiv = styled.div`
   flex-direction: column;
 `;
 
-const Span = styled.span`
+export const Span = styled.span`
   color: var(--color-secondary-main);
 `;
 export default function ProfileCard(props) {
