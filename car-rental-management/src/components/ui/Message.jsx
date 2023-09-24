@@ -46,7 +46,7 @@ function MessageList(props) {
     <StyledDiv variation={"messages"}>
       <H2>
         <span>Messages </span>
-        <AddMessageButton />
+        <AddMessageButton onClick={props.onClick}/>
       </H2>
       <FormGroup>
         <Input type="text" onChange={props.updateUsers} />
