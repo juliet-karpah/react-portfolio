@@ -40,13 +40,16 @@ export default function Messages() {
     users.forEach((item) => (map[item.id] = item));
     setUsersList(Object.values(map));
   };
-  
+
   const updateUsers = (e) => {
     const term = e.target.value;
+    console.log(term)
     if (term) {
+      console.log(usersList)
       let usersNew = usersList.filter((user) => {
-        return user.from.full_name.toLowerCase().includes(term.toLowerCase());
+        return user.full_name.toLowerCase().includes(term.toLowerCase());
       });
+      
       setUsersList(usersNew);
     } else {
       setUsers();
