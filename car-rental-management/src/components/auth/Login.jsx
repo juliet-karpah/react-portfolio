@@ -13,18 +13,18 @@ export default function LoginForm() {
     event.preventDefault();
     login({ email, password });
   };
-  
+
   return (
     <Form width={"300px"} onSubmit={handleSubmit}>
       <H1> Login as Admin </H1>
       <Input
-        value={email}
+        defaultValue={email}
         type="email"
         label="Email"
         disabled={isLoading}
       />
       <Input
-        value={password}
+        defaultValue={password}
         type="password"
         label="Password"
         disabled={isLoading}

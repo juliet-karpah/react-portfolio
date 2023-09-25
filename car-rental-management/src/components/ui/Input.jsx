@@ -27,12 +27,13 @@ export default function Input({
   value,
   type,
   errorMessage,
+  defaultValue,
   onChange
 }) {
   return (
     <DIV>
       <Label> {label} </Label>
-      <InputEL type={type} {...registerFn} value={value} onChange={onChange} />
+      <InputEL type={type} {...registerFn} defaultValue={defaultValue} value={value} onChange={onChange} />
       <Error> {errorMessage} </Error>
     </DIV>
   );
