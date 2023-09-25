@@ -7,6 +7,13 @@ const variation = {
   `,
 };
 
+const variationCol = {
+  dashboard: css`
+    background-color: white;
+    padding: 2rem;
+  `,
+};
+
 export const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,13 +25,15 @@ export const StyledDiv = styled.div`
 export const StyledRow = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content:${props => props.dashboard ? "space-around": "space-between"} ;
 `;
 
 export const StyledCol = styled.div`
   display: flex;
   flex-direction: column;
+  ${(props) => variationCol[props.variation]}
 `;
+
 
 
 
