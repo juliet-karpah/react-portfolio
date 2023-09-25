@@ -40,6 +40,7 @@ export default function Messages() {
     users.forEach((item) => (map[item.id] = item));
     setUsersList(Object.values(map));
   };
+  
   const updateUsers = (e) => {
     const term = e.target.value;
     if (term) {

@@ -2,8 +2,7 @@ import { styled } from "styled-components";
 import { H2 } from "./H2";
 import ProfileCard, { Span } from "./ProfileCard";
 import { ImageDiv, ProfileDiv, StyledCol, StyledDiv } from "./StyledDiv";
-import { Button, ButtonInit } from "./Button";
-import { Textarea } from "./Textarea";
+import { ButtonInit } from "./Button";
 import {
   retrieveDate,
   retrieveTime,
@@ -12,11 +11,9 @@ import MessageCard from "./MessageCard";
 import { Image } from "./ImageComp";
 import Input from "./Input";
 import AddMessageButton from "../messages/AddMessage";
-import { useForm } from "react-hook-form";
-import { useMutation, QueryClient } from "@tanstack/react-query";
-import { addChat } from "../../services/requests/api-chats";
-import toast from "react-hot-toast";
+
 import UseRenters from "../../hooks/useRenters";
+import MessageForm from "./MessageForm";
 
 const MessageTitle = styled.div`
   display: flex;
@@ -40,11 +37,6 @@ export const DIV = styled.div`
   height: 500px;
 `;
 
-const MessageForm = styled(FormGroup)`
-  position: relative;
-  top: 10%;
-`;
-
 function MessageList(props) {
   return (
     <StyledDiv variation={"messages"}>
@@ -57,11 +49,7 @@ function MessageList(props) {
       </FormGroup>
       <DIV>
         {props.users?.map((user, i) => (
-          <ButtonInit
-            message
-            key={i}
-            onClick={() => props.onClick(user.id)}
-          >
+          <ButtonInit message key={i} onClick={() => props.onClick(user.id)}>
             <ProfileCard
               urlPhoto={user.image}
               key={i}
@@ -79,35 +67,19 @@ function MessageExpand(props) {
   const { renters } = UseRenters();
 
   const getUser = (chat) => {
-    let res = []
+    let res = [];
     if (chat.from) {
       res = chat.from;
-    } else if(chat.to) {
+    } else if (chat.to) {
       res = chat.to;
     }
-    return res
+    return res;
   };
 
   const currentUserMessage = props.chats;
   const currentUser = props.chats.length
     ? getUser(props.chats[0])
     : renters?.filter((renter) => renter.id === props.id)[0];
-  const queryClient = new QueryClient();
-  const { register, handleSubmit } = useForm();
-
-  const { mutate } = useMutation({
-    mutationFn: (data) =>
-      addChat({ message: data.message, to: currentUser.id }),
-    onSuccess: () => {
-      toast.success("message sent");
-      queryClient.invalidateQueries({
-        queryKey: ["chats"],
-      });
-    },
-    onError: () => {
-      toast.error("failed to send message");
-    },
-  });
 
   return (
     <StyledDiv variation={"messages"}>
@@ -143,30 +115,16 @@ function MessageExpand(props) {
             </ImageDiv>
             <StyledCol>
               <MessageCard key={i} message={chat.message} />
-              <Span> {chat.to ?  "You": currentUser?.full_name.split(" ")[0]}  sent this at {retrieveTime(chat.created_at)} </Span>
+              <Span>
+                {" "}
+                {chat.to ? "You" : currentUser?.full_name.split(" ")[0]} sent
+                this at {retrieveTime(chat.created_at)}{" "}
+              </Span>
             </StyledCol>
           </ProfileDiv>
         ))}
       </MessageContent>
-      <MessageForm onSubmit={handleSubmit(mutate)}>
-        <Textarea size="small" {...register("message")} />
-        <Button primary type="submit">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-            />
-          </svg>
-        </Button>
-      </MessageForm>
+      <MessageForm currentUser={currentUser} />
     </StyledDiv>
   );
 }
