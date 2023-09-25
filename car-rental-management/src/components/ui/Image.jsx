@@ -16,7 +16,7 @@ const variations = {
   `,
 };
 
-
 export const Image = styled.img`
-object-fit: contain;
-${props => variations[props.variation]}`;
+  object-fit: contain;
+  ${(props) => variations[props.variation]}
+`;
