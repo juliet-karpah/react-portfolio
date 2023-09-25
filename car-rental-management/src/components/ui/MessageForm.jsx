@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import { Textarea } from "./Textarea";
 import { useForm } from "react-hook-form";
 import { styled } from "styled-components";
-import { useMutation, QueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addChat } from "../../services/requests/api-chats";
 import toast from "react-hot-toast";
 
@@ -20,7 +20,7 @@ const MessageFormEL = styled(FormGroup)`
 
 export default function MessageForm({ currentUser }) {
   const { register, handleSubmit } = useForm();
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
     mutationFn: (data) =>
