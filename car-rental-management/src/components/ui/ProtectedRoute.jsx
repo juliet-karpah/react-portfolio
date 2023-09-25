@@ -9,7 +9,10 @@ export default function ProtectedRoute({ children }) {
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {
+      console.log(isAuthenticated, isLoading)
       navigate("/login");
+    }else{
+      navigate("/metrics")
     }
   }, [isAuthenticated, isLoading, navigate]);
 
