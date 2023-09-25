@@ -5,7 +5,8 @@ async function getChats() {
   id,
   created_at,
   message,
-  from (id, full_name, image)
+  from (id, full_name, image),
+  to(id, full_name, image)
   `);
 
   if (error) {
@@ -13,14 +14,7 @@ async function getChats() {
   }
   return data;
 }
-/*
 
-data = {
-  message: "",
-  to: id
-}
-
-*/
 async function addChat(data) {
   if (!data.message || !data.to) throw new Error("add message or user");
   const { data: response, error } = await supabase

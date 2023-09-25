@@ -18,39 +18,45 @@ export default function Messages() {
     queryFn: getChats,
   });
   const [currentChat, setCurrentChat] = useState("");
-  const [usersList, setUsersList] = useState([])
+  const [usersList, setUsersList] = useState([]);
 
   const setChat = (id) => {
-    console.log(id);
     setCurrentChat(id);
   };
 
-  useEffect(()=> {
+  useEffect(() => {
+    setUsers();
+  }, [isLoading]);
+
+  const setUsers = () => {
     let users = isLoading
-    ? []
-    : messages.map((el) => {
-        return { created_at: el.created_at, from: el.from };
-      });
-      setUsersList(users)
-  }, [isLoading])
-
-
+      ? []
+      : messages.map((el) => {
+          return el.from
+            ? { ...el.from, created_at: el.created_at }
+            : { ...el.to, created_at: el.created_at };
+        });
+    let map = {};
+    users.forEach((item) => (map[item.id] = item));
+    setUsersList(Object.values(map));
+  };
   const updateUsers = (e) => {
     const term = e.target.value;
-    if(term){
+    if (term) {
       let usersNew = usersList.filter((user) => {
         return user.from.full_name.toLowerCase().includes(term.toLowerCase());
       });
-      setUsersList(usersNew)
-    }else{
-      let users = isLoading
-      ? []
-      : messages.map((el) => {
-          return { created_at: el.created_at, from: el.from };
-        });
-        setUsersList(users)
+      setUsersList(usersNew);
+    } else {
+      setUsers();
     }
- 
+  };
+
+  const getChat = () => {
+    const chats = messages.filter((mes) => {
+      return mes?.from?.id == currentChat || mes?.to?.id == currentChat;
+    });
+    return chats;
   };
 
   return (
@@ -64,10 +70,7 @@ export default function Messages() {
             onClick={(id) => setChat(id)}
             updateUsers={updateUsers}
           />
-          <MessageExpand
-            chats={messages.filter((mes) => mes.from.id == currentChat)}
-            id={currentChat}
-          />
+          <MessageExpand chats={getChat()} id={currentChat} />
         </MessagesDiv>
       )}
     </>

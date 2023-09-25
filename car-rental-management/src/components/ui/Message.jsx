@@ -60,12 +60,12 @@ function MessageList(props) {
           <ButtonInit
             message
             key={i}
-            onClick={() => props.onClick(user.from.id)}
+            onClick={() => props.onClick(user.id)}
           >
             <ProfileCard
-              urlPhoto={user.from.image}
+              urlPhoto={user.image}
               key={i}
-              name={user.from.full_name}
+              name={user.full_name}
               role={retrieveDate(user.created_at)}
             />
           </ButtonInit>
@@ -76,16 +76,28 @@ function MessageList(props) {
 }
 
 function MessageExpand(props) {
-  const { renters } = UseRenters()
-  console.log(renters?.filter(renter => renter.id === props.id))
+  const { renters } = UseRenters();
+
+  const getUser = (chat) => {
+    let res = []
+    if (chat.from) {
+      res = chat.from;
+    } else if(chat.to) {
+      res = chat.to;
+    }
+    return res
+  };
 
   const currentUserMessage = props.chats;
-  const currentUser = props.chats.length ? props.chats[0]?.from : renters?.filter(renter => renter.id === props.id)[0];
+  const currentUser = props.chats.length
+    ? getUser(props.chats[0])
+    : renters?.filter((renter) => renter.id === props.id)[0];
   const queryClient = new QueryClient();
   const { register, handleSubmit } = useForm();
 
   const { mutate } = useMutation({
-    mutationFn: (data) => addChat({message: data.message, to: currentUser.id}),
+    mutationFn: (data) =>
+      addChat({ message: data.message, to: currentUser.id }),
     onSuccess: () => {
       toast.success("message sent");
       queryClient.invalidateQueries({
@@ -101,8 +113,8 @@ function MessageExpand(props) {
     <StyledDiv variation={"messages"}>
       <MessageTitle>
         <ProfileCard
-          urlPhoto={currentUser.image}
-          name={currentUser.full_name}
+          urlPhoto={currentUser?.image}
+          name={currentUser?.full_name}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -125,13 +137,13 @@ function MessageExpand(props) {
           <ProfileDiv key={i}>
             <ImageDiv>
               <Image
-                src={currentUser ? currentUser.image : "/profile-pic.png"}
+                src={chat.from ? currentUser.image : "/profile-pic.png"}
                 variation={"rounded"}
               />
             </ImageDiv>
             <StyledCol>
               <MessageCard key={i} message={chat.message} />
-              <Span> {retrieveTime(chat.created_at)} </Span>
+              <Span> {chat.to ?  "You": currentUser?.full_name.split(" ")[0]}  sent this at {retrieveTime(chat.created_at)} </Span>
             </StyledCol>
           </ProfileDiv>
         ))}

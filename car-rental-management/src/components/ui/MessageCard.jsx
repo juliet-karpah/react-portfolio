@@ -8,7 +8,7 @@ const TextDiv = styled.div`
 `;
 
 const Paragraph = styled.p`
-color: var(--color-grey-600)
+  color: var(--color-grey-600);
 `;
 
 export default function MessageCard(props) {
