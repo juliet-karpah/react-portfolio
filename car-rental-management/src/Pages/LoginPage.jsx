@@ -1,6 +1,6 @@
 import LoginForm from "../components/auth/Login";
 import { styled } from "styled-components";
-import { Image } from "../components/ui/image";
+// import { Image } from "../components/ui/image";
 
 const LoginLayout = styled.main`
   display: flex;
@@ -12,7 +12,7 @@ const LoginLayout = styled.main`
 export default function LoginPage() {
   return (
     <LoginLayout>
-      <Image variation={"medium"} src="logo.png" />
+      {/* <Image variation={"medium"} src="logo.png" /> */}
       <LoginForm />
     </LoginLayout>
   );
