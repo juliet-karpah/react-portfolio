@@ -1,6 +1,6 @@
 import LoginForm from "../components/auth/Login";
 import { styled } from "styled-components";
-import { Image } from "../components/ui/Image";
+import { Image } from "../components/ui/image";
 
 const LoginLayout = styled.main`
   display: flex;
