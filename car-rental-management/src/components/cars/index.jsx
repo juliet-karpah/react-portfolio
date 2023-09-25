@@ -3,7 +3,7 @@ import { StyledDiv } from "../ui/StyledDiv";
 import Table, { TableData, RowData, TableDataStatus } from "../ui/Table";
 import { useQuery } from "@tanstack/react-query";
 import { getCars } from "../../services/requests/api-cars";
-import { Image } from "../ui/image";
+import { Image } from "../ui/ImageComp";
 
 import { tableTitleCars } from "../../staticData";
 import AddCarButton from "./AddCar";

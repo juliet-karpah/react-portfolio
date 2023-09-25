@@ -9,7 +9,7 @@ import {
   retrieveTime,
 } from "../../services/helper-functions/date";
 import MessageCard from "./MessageCard";
-import { Image } from "./image";
+import { Image } from "./ImageComp";
 import Input from "./Input";
 import AddMessageButton from "../messages/AddMessage";
 import { useForm } from "react-hook-form";

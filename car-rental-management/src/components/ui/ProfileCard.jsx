@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Image } from "./image";
+import { Image } from "./ImageComp";
 import { ImageDiv, ProfileDiv } from "./StyledDiv";
 
 
