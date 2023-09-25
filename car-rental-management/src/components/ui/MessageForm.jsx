@@ -19,7 +19,7 @@ const MessageFormEL = styled(FormGroup)`
 `;
 
 export default function MessageForm({ currentUser }) {
-  const { register, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
@@ -27,6 +27,7 @@ export default function MessageForm({ currentUser }) {
       addChat({ message: data.message, to: currentUser.id }),
     onSuccess: () => {
       toast.success("message sent");
+      reset()
       queryClient.invalidateQueries({
         queryKey: ["chats"],
       });
