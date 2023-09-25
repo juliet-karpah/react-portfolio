@@ -3,11 +3,11 @@ import { ButtonInit } from "../ui/Button";
 import { Form } from "../ui/Form";
 import { H1 } from "../ui/H1";
 import Input from "../ui/Input";
-import { email, password } from "../../services/config";
 
 export default function LoginForm() {
   const { login, isLoading } = useLogin();
-
+  const email = import.meta.env.VITE_EMAIL
+  const password = import.meta.env.VITE_PASSWORD
   const handleSubmit = (event) => {
     event.preventDefault();
     login({ email, password });
