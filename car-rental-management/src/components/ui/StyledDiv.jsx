@@ -11,6 +11,7 @@ const variationCol = {
   dashboard: css`
     background-color: white;
     padding: 1rem;
+    width: 20%;
   `,
 };
 
