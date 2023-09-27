@@ -10,7 +10,7 @@ const variation = {
 const variationCol = {
   dashboard: css`
     background-color: white;
-    padding: 2rem;
+    padding: 1rem;
   `,
 };
 
