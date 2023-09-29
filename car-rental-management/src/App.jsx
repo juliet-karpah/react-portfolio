@@ -27,6 +27,7 @@ function App() {
       element: <LoginPage />,
     },
     {
+      path:"/",
       element: <ProtectedRoute><AppLayout /></ProtectedRoute>,
       children: [
         {
