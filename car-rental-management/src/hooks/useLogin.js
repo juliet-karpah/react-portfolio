@@ -5,7 +5,8 @@ import { toast } from "react-hot-toast";
 
 export default function useLogin() {
   const queryClient = useQueryClient();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+ 
 
   const {
     mutate: login,
@@ -14,9 +15,11 @@ export default function useLogin() {
   } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueryData(["user"], user.user);
-      toast.success("Login successful")
-      navigate("/metrics", {replace: true});
+      if(user.user.aud == "authenticated"){
+        queryClient.setQueryData(["user"], user.user);
+        navigate("/metrics", {replace: true});
+        toast.success("Login successful")
+      }
     },
     onError: () => toast.error("Login failed"),
   });

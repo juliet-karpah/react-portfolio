@@ -23,10 +23,6 @@ const queryClient = new QueryClient({
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/login",
-      element: <LoginPage />,
-    },
-    {
       path:"/",
       element: <ProtectedRoute><AppLayout /></ProtectedRoute>,
       children: [
@@ -59,6 +55,10 @@ function App() {
           element: <RentersPage />,
         },
       ],
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
     },
   ]);
   return (
