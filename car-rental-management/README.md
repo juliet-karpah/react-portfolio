@@ -19,6 +19,9 @@ Messages Page
 
 ![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/messages-page.png)
 
+Dashboard Page
+
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/dashboard-page.png)
 
 ### Forms
 
