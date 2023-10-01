@@ -26,6 +26,9 @@ export const RowData = styled(TableRow)`
 
 const Thead = styled.thead`
   background-color: var(--color-grey-200);
+  & svg{
+    width: 1rem;
+  }
 `;
 
 const TableHeader = styled.th`
