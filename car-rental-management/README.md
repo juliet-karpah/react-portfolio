@@ -89,8 +89,7 @@ async function addCar(data) {
 
   return res;
 }
+
 export { getCars, getCount, archiveCar, addCar };
-
-
 ```
 
