@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { NavLink, useLocation } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
+import { SVG } from "./Svg";
 
 const NavList = styled.ul`
   list-style-type: none;
@@ -69,7 +70,7 @@ export default function MainNav() {
       name: "Cars",
       path: "/cars",
       img: (
-        <svg
+        <SVG
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -81,14 +82,14 @@ export default function MainNav() {
             d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
             clipRule="evenodd"
           />
-        </svg>
+        </SVG>
       ),
     },
     {
       name: "Renters",
       path: "/renters",
       img: (
-        <svg
+        <SVG
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -100,14 +101,14 @@ export default function MainNav() {
             d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z"
             clipRule="evenodd"
           />
-        </svg>
+        </SVG>
       ),
     },
     {
       name: "Messages",
       path: "/messages",
       img: (
-        <svg
+        <SVG
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -123,14 +124,14 @@ export default function MainNav() {
             d="M12 2.25a.75.75 0 01.75.75v6.44l1.72-1.72a.75.75 0 111.06 1.06l-3 3a.75.75 0 01-1.06 0l-3-3a.75.75 0 011.06-1.06l1.72 1.72V3a.75.75 0 01.75-.75z"
             clipRule="evenodd"
           />
-        </svg>
+        </SVG>
       ),
     },
     {
       name: "Business Metrics",
       path: "/metrics",
       img: (
-        <svg
+        <SVG
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -141,7 +142,7 @@ export default function MainNav() {
             d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z"
             clipRule="evenodd"
           />
-        </svg>
+        </SVG>
       ),
     },
   ];
@@ -150,7 +151,7 @@ export default function MainNav() {
       <NavList>
         <li>
           <NavButton>
-            <svg
+            <SVG
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
@@ -158,7 +159,7 @@ export default function MainNav() {
             >
               <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
               <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
-            </svg>
+            </SVG>
 
             <Span>Reservations </Span>
 
@@ -204,7 +205,7 @@ export default function MainNav() {
           </li>
         ))}
         <NavButton onClick={logout}>
-          <svg
+          <SVG
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -217,7 +218,7 @@ export default function MainNav() {
               strokeLinejoin="round"
               d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
             />
-          </svg>
+          </SVG>
           <Span> Logout </Span>{" "}
         </NavButton>
       </NavList>

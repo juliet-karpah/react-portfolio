@@ -24,9 +24,11 @@ export const StyledDiv = styled.div`
 `;
 
 export const StyledRow = styled.div`
+  margin-top: ${(props) => props.charts && "100px"};
   display: flex;
   width: 100%;
-  justify-content:${props => props.dashboard ? "space-around": "space-between"} ;
+  justify-content: ${(props) =>
+    props.dashboard ? "space-around" : "space-between"};
 `;
 
 export const StyledCol = styled.div`
@@ -34,9 +36,6 @@ export const StyledCol = styled.div`
   flex-direction: column;
   ${(props) => variationCol[props.variation]}
 `;
-
-
-
 
 export const ProfileDiv = styled.div`
   display: flex;
@@ -46,7 +45,7 @@ export const ProfileDiv = styled.div`
 `;
 
 export const ImageDiv = styled.div`
-height: ${props => props.noHeight ? "none": "100px"};
-display:flex;
-align-items: center;
-`
+  height: ${(props) => (props.noHeight ? "none" : "100px")};
+  display: flex;
+  align-items: center;
+`;

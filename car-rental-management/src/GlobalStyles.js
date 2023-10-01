@@ -30,10 +30,6 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto Slab', serif;
     }
 
-    svg{
-        width: 1rem;
-    }
-
     tr, th, td {
         height: 50px;
         padding-left: 40px;
