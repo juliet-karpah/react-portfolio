@@ -1,4 +1,15 @@
-# Restaurant Management App
+# Car rental Management App
+The goal of this project is to create an admin page for a car rental company. The frontend is built with React and React query. The data and image store is handled by Supabase. 
+
+### What are the core functionalities?
+- Login with Admin credentials
+- Add and archive cars.
+- View Current and Past Reservations
+- View Renters
+-  Send and receive messages to/from Renters
+-  View a dashboard for total revenue, available cars, and Total reservations.
+
+
 
 ## User Interface
 ### Pages
