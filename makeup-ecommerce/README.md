@@ -22,9 +22,21 @@ A simple ecommerce web application built with the latest [reactjs](https://react
 
 ### High Level Architecture
 
-![]()
+![](https://github.com/juliet-karpah/react-portfolio/blob/main/assets/ecommerceArchitecture.png)
+
+- FireBase: Provides image storage and document oriented datastore for products and orders
+- Controller: Controls actions, data flow and state changes within the application
+- Redux store: manages the global state of the application
 
 
+### Data Model
+
+| Entity  | Fields |
+| ------------- | ------------- |
+| `Products`  | list of `products`  |
+| `Product`  | title, ratings, price, info(description, img, ingredients), img, alt, ad  |
+|`Orders`| status, userInfo(address, cart, email, first_name, last_name, phone)|
+| `Cart`| products, total|
 
 
 ## Demo
