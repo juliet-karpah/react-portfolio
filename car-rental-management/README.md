@@ -10,7 +10,8 @@ The goal of this project is to create an admin page for a car rental company. Th
 -  View a dashboard for total revenue, available cars, and Total reservations.
 
 ### Demo
-Please use the link below to view the deployed application. 
+Please use the link below to view the deployed application:
+
 [Volonte](https://react-portfolio-seven-iota-74.vercel.app/)
 
 
