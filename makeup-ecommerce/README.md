@@ -1,6 +1,32 @@
 # React + Vite + Firebase Makeup Online Shop
 A simple ecommerce web application built with the latest [reactjs](https://react.dev/) as front end framework, [tailwind css](https://tailwindcss.com/docs/installation) for styling, [Redux](https://redux.js.org/) as global state manager, and [Firebase](https://firebase.google.com/docs/) firestore for persistent storage of products and orders.
 
+## System Design 
+
+### Requirements 
+#### What are the core features supported?
+- Browse the listed makeup products
+- View the details of a product
+- Add an item to cart
+- Create an order with current cart
+
+#### What are the pages in the website? 
+- Home page with marketing and product listing 
+- Product Details page
+- Cart Page 
+- Checkout Page
+
+#### What devices can you open the website with?
+- Mobile web
+- Laptop
+
+### High Level Architecture
+
+![]()
+
+
+
+
 ## Demo
 
 ### Deployed Link
